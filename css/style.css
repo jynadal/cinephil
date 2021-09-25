@@ -1,12 +1,27 @@
 /* Reset css */
 
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+  scroll-behavior: smooth;
+}
+
+a {
+  list-style: none;
+}
+ul {
+  text-decoration: none;
+}
+
 /* *,
 *::before,
 *::after {
   box-sizing: border-box;
 } */
 
-* {
+/* * {
   all: unset;
   display: revert;
   box-sizing: border-box;
@@ -28,7 +43,6 @@ font-family: 'Open Sans', sans-serif;
 font-family: 'Permanent Marker', cursive;
 font-family: 'Pinyon Script', cursive;
 font-family: 'Roboto', sans-serif;
-*/
 
 #hero {
   display: flex;
@@ -42,15 +56,15 @@ font-family: 'Roboto', sans-serif;
   background-size: auto 100%;
   background-position-x: center;
   background-position-y: bottom;
-  right: 30px; */
+  right: 30px;
 }
 
 .picture-movie {
-  /* background-image: radial-gradient(transparent 0%, transparent 40%, black 60%); */
+background-image: radial-gradient(transparent 0%, transparent 40%, black 60%);
   width: auto;
   height: 75%;
   position: absolute;
-  /* background-size: auto 100%; */
+   background-size: auto 100%;
   bottom: 90px;
   right: 80px;
 }
@@ -77,9 +91,10 @@ h1 span {
 }
 .nav-menu ul {
   display: flex;
-  /* flex-direction: row;
+  flex-direction: row;
   justify-content: space-around;
   align-items: center; */
+/*   
 }
 .nav-menu ul li {
   margin: 10px 15px;
@@ -104,14 +119,13 @@ h1 span {
   align-items: center;
   background-color: cadetblue;
 }
-
-/* #SVOD {
+ #SVOD {
   display: flex;
   justify-content: center;
   width: 100%;
 }
 #SVOD {
-  /* width: calc(200px * 6);
+  width: calc(200px * 6);
   height: 800px;
 }
 
@@ -133,7 +147,7 @@ h1 span {
   width: auto;
 }
 
-/* Les logos SVOD 
+Les logos SVOD 
 .netflix {
   background: url(../images/logos/netflix.png) no-repeat 100%;
   background-size: cover;
@@ -164,37 +178,3 @@ h1 span {
   height: 5rem;
 }
 */
-
-.category-section {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  background-color: cyan;
-  width: 100%;
-}
-
-.category-section h3 {
-  display: block;
-  justify-content: center;
-  text-align: center;
-  font-size: 3rem;
-  margin: 10px auto 10px auto;
-}
-.movies-section {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  margin: auto 40px;
-}
-.movie-h4 {
-  /* display: flex; */
-  /* flex-direction: column; */
-  margin-top: 5rem;
-}
-.cover-movie {
-  /* display: flex; */
-  /* flex-direction: column; */
-  width: 80%;
-  height: 80%;
-  margin-top: 5rem;
-}

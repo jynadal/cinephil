@@ -6,19 +6,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CinePhil</title>
 
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css" />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fleur+De+Leah&family=Open+Sans&family=Permanent+Marker&family=Pinyon+Script&family=Roboto&display=swap" rel="stylesheet">
-
-</head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fleur+De+Leah&family=Open+Sans&family=Permanent+Marker&family=Pinyon+Script&family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+  </head>
   <body>
     <!-- Begin Hero section -->
     <header id="hero">
-
       <!-- Nav section -->
-      <div id="nav">
+      <nav class="navbar">
+        <div class="navbar__container">
+          <a href="" id="navbar__logo">Cine'Phil</a>
+          <div class="navbar__toggle" id="navbar-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+          </div>
+          <ul class="navbar__menu">
+            <li class="navbar__item">
+              <a href="home" class="navbar__links" id="home-page">Accueil</a>
+            </li>
+            <li class="navbar__item">
+              <a href="#about" class="navbar__links" id="home-about">
+                A propos
+              </a>
+            </li>
+
+            <li class="navbar__item">
+              <a href="#contact" class="navbar__links" id="home-contact">
+                Contact
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <!-- <div id="nav">
         <h1>Cine' <span>Phil</span></h1>
         <div class="nav-menu">
           <ul>
@@ -27,25 +55,22 @@
             <li>Contact</li>
           </ul>
         </div>
-      </div>
+      </div> -->
       <!-- movie section -->
-      <div id="hero-movie">
+      <!-- <div id="hero-movie">
           <h2>Le dernier chateau</h2>
           <p> Injustement condamné par la Cour Martiale, le général Irwin est tenu responsable de la mort de huit soldats. Il doit donc purger une peine dans une prison militaire de haute sécurité appelée "Le Château".</p>
             <button>Voir</button>
-      </div>
-      
-      <img src="images/last_castle_min.jpg" alt="" class="picture-movie">
-      <!-- <div class="picture-movie"></div> -->
+      </div> -->
 
-      
+      <!-- <img src="images/last_castle_min.jpg" alt="" class="picture-movie"> -->
+      <!-- <div class="picture-movie"></div> -->
     </header>
     <!-- End Hero section -->
     <!-- Begin Container section -->
     <main class="container">
-        
-        <!-- SVOD -->
-        <!-- <div id="SVOD">
+      <!-- SVOD -->
+      <!-- <div id="SVOD">
           <ul>
               <li class="logo-SVOD netflix"><a href="#netflix">NETFLIX</a></li>
               <li class="logo-SVOD amazon-prime-video"><a href="#prime" >Amazon</a></li>
@@ -55,9 +80,10 @@
               <li class="logo-SVOD salto"><a href="#salto">salto</a></li>
           </ul>
         </div> -->
-        
-        <!-- Category section -->
-        <div class="category-section">
+
+      <!-- Category section -->
+
+      <!-- <div class="category-section">
             <h3 class="category">Categorie Meilleur film d'action</h3>
           
           
@@ -89,18 +115,16 @@
               <button id="next-btn">Next</button>
             </div>
 
-          </div>
+          </div> -->
 
-        <!-- Several category -->
-
-
-        </main>
+      <!-- Several category -->
+    </main>
     <!-- End Container section -->
 
     <!-- Begin Footer section -->
 
-
     <!-- End Footer section -->
+
     <script src="app.js"></script>
   </body>
 </html>
