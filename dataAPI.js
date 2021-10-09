@@ -29,6 +29,8 @@ async function getRatedMovie() {
     });
 }
 
+// Best Movies
+
 // Pour les catégory
 
 urlBestMovies = url2;
