@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      #DIV1 {
+        margin-top: 70px;
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        background-color: red;
+      }
+    </style>
+    <script>
+      var setLeft = 50;
+      function changeLeft() {
+        document.getElementById("DIV1").style.left = setLeft + "px";
+        setLeft += 50;
+      }
+    </script>
+  </head>
+  <h1>Left property example</h1>
+  <body>
+    <div id="DIV1"></div>
+    <p>
+      Change the left position for the below div by clicking the below button
+    </p>
+    <button type="button" id="myBtn" onclick="changeLeft()">
+      Left Position
+    </button>
+  </body>
+</html>

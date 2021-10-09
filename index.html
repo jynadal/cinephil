@@ -4,9 +4,9 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CinePhil</title>
+    <title>Ring'It</title>
 
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/styles.css" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -17,34 +17,65 @@
   </head>
   <body>
     <!-- Begin Hero section -->
-    <header id="hero">
+    <header>
       <!-- Nav section -->
       <nav class="navbar">
         <div class="navbar__container">
-          <a href="" id="navbar__logo">Cine'Phil</a>
-          <div class="navbar__toggle" id="navbar-menu">
+          <a href="#home" id="navbar__logo">Ring'It</a>
+          <div class="navbar__toggle" id="mobile-menu">
             <span class="bar"></span>
             <span class="bar"></span>
             <span class="bar"></span>
           </div>
           <ul class="navbar__menu">
             <li class="navbar__item">
-              <a href="home" class="navbar__links" id="home-page">Accueil</a>
+              <a href="#home" class="navbar__links" id="home-page">Accueil</a>
             </li>
             <li class="navbar__item">
-              <a href="#about" class="navbar__links" id="home-about">
+              <a href="#about" class="navbar__links" id="about-page">
                 A propos
               </a>
             </li>
-
             <li class="navbar__item">
-              <a href="#contact" class="navbar__links" id="home-contact">
+              <a href="#contact" class="navbar__links" id="contact-page">
                 Contact
               </a>
+            </li>
+
+            <li class="navbar__btn">
+              <a href="#sign-up" class="button" id="signup"> Inscription </a>
             </li>
           </ul>
         </div>
       </nav>
+
+      <!-- Hero Section -->
+      <div class="hero" id="home">
+        <!-- class="hero" -->
+        <div class="hero__container">
+          <h1 id="h1" class="hero__heading">
+            Nouveauté sur <span>Titre du film</span>
+          </h1>
+          <p class="hero__description">
+            About the film, it's a fabulous movie about the film, it's a
+            fabulous movie the film, it's a fabulous movie about the film, it's
+            a fabulous movie. About the film, it's a fabulous movie about the
+            film, it's a fabulous movie the film, it's a fabulous movie about
+            the film, it's a fabulous movie.
+          </p>
+          <button class="main__btn hightlight">
+            <a href="http://">Voir le film</a>
+          </button>
+        </div>
+        <img
+          id="best_movie_picture"
+          src="https://image.tmdb.org/t/p/w185/8Y43POKjKDGI9MH89NW0NAzzp8.jpg"
+          alt=""
+          class="picture-movie"
+        />
+
+        <!-- <div class="picture-movie"></div> -->
+      </div>
 
       <!-- <div id="nav">
         <h1>Cine' <span>Phil</span></h1>
@@ -59,7 +90,7 @@
       <!-- movie section -->
       <!-- <div id="hero-movie">
           <h2>Le dernier chateau</h2>
-          <p> Injustement condamné par la Cour Martiale, le général Irwin est tenu responsable de la mort de huit soldats. Il doit donc purger une peine dans une prison militaire de haute sécurité appelée "Le Château".</p>
+           Injustement condamné par la Cour Martiale, le général Irwin est tenu responsable de la mort de huit soldats. Il doit donc purger une peine dans une prison militaire de haute sécurité appelée "Le Château".</p>
             <button>Voir</button>
       </div> -->
 
@@ -68,56 +99,344 @@
     </header>
     <!-- End Hero section -->
     <!-- Begin Container section -->
-    <main class="container">
-      <!-- SVOD -->
-      <!-- <div id="SVOD">
-          <ul>
-              <li class="logo-SVOD netflix"><a href="#netflix">NETFLIX</a></li>
-              <li class="logo-SVOD amazon-prime-video"><a href="#prime" >Amazon</a></li>
-              <li class="logo-SVOD ovieOC+"><a href="#movieOpenC">OC</a></li>
-               <li class="logo-SVOD disney" ><a href="#disney+">Disney</a></li>
-              <li class="logo-SVOD hbo"><a href="#hbo" >HBO</a></li>
-              <li class="logo-SVOD salto"><a href="#salto">salto</a></li>
-          </ul>
-        </div> -->
 
-      <!-- Category section -->
+    <main class="main__container">
+      <header>
+        <h1>Top Hottest Products</h1>
+      </header>
+      <div class="arrow">
+        <div class="arrow__btn" id="left">&#139;</div>
+        <div class="arrow__btn" id="right">&#155;</div>
+      </div>
+      <section>
+        <div class="movie">
+          <picture>
+            <img src="images/films/oceans11.jpg" alt="oceans11" />
+          </picture>
+          <div class="detail">
+            <h4>Titre du film</h4>
+            <br />
+            <p>New arrival</p>
+          </div>
+          <!--<div class="button">
+            <p class="star">
+              <strong>&star;</strong>
+              <strong>&star;</strong>
+              <strong>&star;</strong>
+              <strong>&star;</strong>
+              <strong>&star;</strong>
+            </p>
+            <a href="#">Add-cart</a>
+          </div> -->
+        </div>
 
-      <!-- <div class="category-section">
-            <h3 class="category">Categorie Meilleur film d'action</h3>
-          
-          
-            <div class="movies-section">
-            <div class="movie">
-              <img src="images/films/oceans11.jpg" alt="" class="cover-movie">
-                <h4 class="movie-h4">The movie 1 </h4>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque, tempora.</h4p>
+        <div class="movie">
+          <picture>
+            <img src="images/films/pulp-fiction.jpg" alt="pulp-fiction" />
+          </picture>
+          <div class="detail">
+            <h4>Titre du film</h4>
+            <br />
+            <p>New arrival</p>
+          </div>
+          <!--<div class="button">
+            <p class="star">
+              <strong>&star;</strong>
+              <strong>&star;</strong>
+              <strong>&star;</strong>
+              <strong>&star;</strong>
+              <strong>&star;</strong>
+            </p>
+            <a href="#">Add-cart</a>
+          </div> -->
+        </div>
+        <div class="movie">
+          <picture>
+            <img src="images/films/oceans13.jpg" alt="oceans13" />
+          </picture>
+          <div class="detail">
+            <h4>Titre du film</h4>
+            <br />
+            <p>New arrival</p>
+          </div>
+          <!--<div class="button">
+            <p class="star">
+              <strong>&star;</strong>
+              <strong>&star;</strong>
+              <strong>&star;</strong>
+              <strong>&star;</strong>
+              <strong>&star;</strong>
+            </p>
+            <a href="#">Add-cart</a>
+          </div> -->
+        </div>
+
+        <div class="movie">
+          <picture>
+            <img src="images/films/Usual-suspects.jpg" alt="Usual-suspects" />
+          </picture>
+          <div class="detail">
+            <h4>Titre du film</h4>
+            <br />
+            <p>New arrival</p>
+          </div>
+          <!--<div class="button">
+            <p class="star">
+              <strong>&star;</strong>
+              <strong>&star;</strong>
+              <strong>&star;</strong>
+              <strong>&star;</strong>
+              <strong>&star;</strong>
+            </p>
+            <a href="#">Add-cart</a>
+          </div> -->
+        </div>
+        <div class="movie">
+          <picture>
+            <img src="images/films/slevin.jpg" alt="slevin" />
+          </picture>
+          <div class="detail">
+            <h4>Titre du film</h4>
+            <br />
+            <p>New arrival</p>
+          </div>
+          <!--<div class="button">
+            <p class="star">
+              <strong>&star;</strong>
+              <strong>&star;</strong>
+              <strong>&star;</strong>
+              <strong>&star;</strong>
+              <strong>&star;</strong>
+            </p>
+            <a href="#">Add-cart</a>
+          </div> -->
+        </div>
+
+        <div class="movie">
+          <picture>
+            <img src="images/films/oceans12.jpg" alt="oceans12" />
+          </picture>
+          <div class="detail">
+            <h4>Titre du film</h4>
+            <br />
+            <p>New arrival</p>
+          </div>
+          <!--<div class="button">
+            <p class="star">
+              <strong>&star;</strong>
+              <strong>&star;</strong>
+              <strong>&star;</strong>
+              <strong>&star;</strong>
+              <strong>&star;</strong>
+            </p>
+            <a href="#">Add-cart</a>
+          </div> -->
+        </div>
+        <div class="movie">
+          <picture>
+            <img src="images/films/four-rooms.jpg" alt="four rooms" />
+          </picture>
+          <div class="detail">
+            <h4>Titre du film</h4>
+            <br />
+            <p>New arrival</p>
+          </div>
+          <!--<div class="button">
+            <p class="star">
+              <strong>&star;</strong>
+              <strong>&star;</strong>
+              <strong>&star;</strong>
+              <strong>&star;</strong>
+              <strong>&star;</strong>
+            </p>
+            <a href="#">Add-cart</a>
+          </div> -->
+        </div>
+
+        <div class="movie">
+          <picture>
+            <img src="images/films/pulp-fiction.jpg" alt="pulp-fiction" />
+          </picture>
+          <div class="detail">
+            <h4>Titre du film</h4>
+            <br />
+            <p>New arrival</p>
+          </div>
+          <!--<div class="button">
+            <p class="star">
+              <strong>&star;</strong>
+              <strong>&star;</strong>
+              <strong>&star;</strong>
+              <strong>&star;</strong>
+              <strong>&star;</strong>
+            </p>
+            <a href="#">Add-cart</a>
+          </div> -->
+        </div>
+      </section>
+
+      <!-- <div class="category__carousel">
+        <h3>Category Nouveauté</h3>
+
+        <div class="carousel" id="carousel__content">
+          <div class="carousel__item">
+            <img src="images/films/oceans11.jpg" alt="oceans11" />
+            <h4>1 Ocean's 11</h4>
+          </div>
+
+          <div class="carousel__item">
+            <img src="images/films/pulp-fiction.jpg" alt="pulp-fiction" />
+            <h4>2 Pulp fiction</h4>
+          </div>
+          <div class="carousel__item">
+            <img src="images/films/oceans13.jpg" alt="oceans13" />
+            <h4>3 Ocean's 13</h4>
+          </div>
+          <div class="carousel__item">
+            <img src="images/films/Usual-suspects.jpg" alt="Usual-suspects" />
+            <h4>4 Usual suspects</h4>
+          </div>
+          <div class="carousel__item" id="item5">
+            <img src="images/films/slevin.jpg" alt="slevin" />
+            <h4>5 Slevin</h4>
+          </div>
+          <div class="carousel__item">
+            <img src="images/films/oceans12.jpg" alt="oceans12" />
+            <h4>6 Ocean's 12</h4>
+          </div>
+          <div class="carousel__item">
+            <img src="images/films/four-rooms.jpg" alt="four rooms" />
+            <h4>7 Four Rooms</h4>
+          </div>
+
+          <div class="carousel__actions">
+            <button
+              class="right--btn show"
+              id="carousel__button--prev"
+              aria-label="Previous side"
+            >
+              <<
+            </button>
+            <button
+              class="left-btn show"
+              id="carousel__button--next"
+              aria-label="Next side"
+            >
+              >>
+            </button>
+          </div>
+        </div>
+      </div> -->
+      <!-- ******************************************
+      Begin CATEGORY  OCMOVIE A DUPLIQUER CAROUSEL 3
+      ******************************************** -->
+      <!-- <div class="category__carousel__3">
+        <h3 class="cat3">Category Nouveauté</h3>
+
+        <div class="carousel__3">
+          <div class="carousel__3__box" id="carousel__3__content">
+            <div class="carousel__3__item">
+              <img src="images/films/oceans11.jpg" alt="oceans11" />
+              <h4>1 Ocean's 11</h4>
             </div>
-             <div class="movie">
-                <img src="images/films/oceans12.jpg" alt="" class="cover-movie">
-                <h4 class="movie-h4">The movie 2</h4>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque, tempora.</h4p>
+
+            <div class="carousel__3__item">
+              <img src="images/films/pulp-fiction.jpg" alt="pulp-fiction" />
+              <h4>2 Pulp fiction</h4>
             </div>
-             <div class="movie">
-                <img src="images/films/oceans13.jpg" alt="" class="cover-movie">
-                <h4 class="movie-h4">The movie 3</h4>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque, tempora.</h4p>
+            <div class="carousel__3__item">
+              <img src="images/films/oceans13.jpg" alt="oceans13" />
+              <h4>3 Ocean's 13</h4>
             </div>
-             <div class="movie">
-                <img src="images/films/slevin.jpg" alt="" class="cover-movie">
-                <h4 class="movie-h4">The movie 4</h4>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque, tempora.</h4p>
+            <div class="carousel__3__item">
+              <img src="images/films/Usual-suspects.jpg" alt="Usual-suspects" />
+              <h4>4 Usual suspects</h4>
+            </div>
+            <div class="carousel__3__item" id="item5">
+              <img src="images/films/slevin.jpg" alt="slevin" />
+              <h4>5 Slevin</h4>
+            </div>
+            <div class="carousel__3__item">
+              <img src="images/films/oceans12.jpg" alt="oceans12" />
+              <h4>6 Ocean's 12</h4>
+            </div>
+            <div class="carousel__3__item">
+              <img src="images/films/four-rooms.jpg" alt="four rooms" />
+              <h4>7 Four Rooms</h4>
+            </div>
+
+            <div class="carousel__3__item">
+              <img src="images/films/oceans11.jpg" alt="oceans11" />
+              <h4>8 Ocean's 11</h4>
+            </div>
+
+            <div class="carousel__3__item">
+              <img src="images/films/pulp-fiction.jpg" alt="pulp-fiction" />
+              <h4>9 Pulp fiction</h4>
+            </div>
+            <div class="carousel__3__item">
+              <img src="images/films/oceans13.jpg" alt="oceans13" />
+              <h4>10 Ocean's 13</h4>
+            </div>
+            <div class="carousel__3__item">
+              <img src="images/films/Usual-suspects.jpg" alt="Usual-suspects" />
+              <h4>11 Usual suspects</h4>
+            </div>
+            <div class="carousel__3__item" id="item5">
+              <img src="images/films/slevin.jpg" alt="slevin" />
+              <h4>12 Slevin</h4>
+            </div>
+            <div class="carousel__3__item">
+              <img src="images/films/oceans12.jpg" alt="oceans12" />
+              <h4>13 Ocean's 12</h4>
+            </div>
+            <div class="carousel__3__item">
+              <img src="images/films/four-rooms.jpg" alt="four rooms" />
+              <h4>14 Four Rooms</h4>
             </div>
           </div>
 
-            <div class="carousel-btn">
-              <button id="prev-btn">Prev </button>
-              <button id="next-btn">Next</button>
-            </div>
+          <div class="carousel__3__actions">
+            <button
+              class="right--btn show"
+              id="carousel__3__button--prev"
+              aria-label="Previous side"
+              onclick="left_mover()"
+            >
+              &#139;
+            </button>
+            <button
+              class="left-btn show"
+              id="carousel__3__button--next"
+              aria-label="Next side"
+              onclick="right_mover()"
+            >
+              &#155;
+            </button>
+          </div>
+        </div>
+      </div> -->
 
-          </div> -->
+      <!-- ********************************
+        End CATEGORY  OCMOVIE A DUPLIQUER
+      ********************************* -->
 
-      <!-- Several category -->
+      <div class="netflix_logo">
+        <img src="./images/netflix.png" alt="" />
+      </div>
+
+      <div class="carousel2">
+        <div class="carousel__box">
+          <!-- Random data -->
+        </div>
+
+        <button class="switchLeft sliderButton" onclick="sliderScrollLeft()">
+          <
+        </button>
+        <button class="switchRight sliderButton" onclick="sliderScrollRight()">
+          >
+        </button>
+      </div>
     </main>
     <!-- End Container section -->
 
@@ -126,5 +445,14 @@
     <!-- End Footer section -->
 
     <script src="app.js"></script>
+    <script src="dataAPI.js"></script>
+    <script src="main.js"></script>
+    <script src="index.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.4/axios.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- (document).ready(function(){ $("#hide").click(function(){ $("p").hide(); });
+    $("#show").click(function(){ $("p").show(); }); }); -->
   </body>
 </html>
