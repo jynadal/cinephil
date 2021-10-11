@@ -42,6 +42,7 @@ let right_mover = () => {
   }
   console.log(l);
 };
+
 let left_mover = () => {
   l = l - movePer;
   if (l <= 0) {
@@ -58,4 +59,22 @@ right.onclick = () => {
 };
 left.onclick = () => {
   left_mover();
+};
+
+// The Modal Commande
+var btnModal = document.getElementById("btnModal");
+var modal = document.getElementById("movieModal");
+var spanClose = document.getElementsByClassName("close")[0];
+
+btnModal.onclick = function () {
+  console.log("modal clicked!");
+  modal.style.display = "block";
+};
+// btnModal.addEventListener("click", function () {
+//   console.log("click btn Modal");
+//   modal.style.display = "block";
+// });
+
+spanClose.onclick = function () {
+  modal.style.display = "none";
 };

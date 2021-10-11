@@ -60,9 +60,39 @@
             About the film, it's a fabulous movie about the film, it's a
             fabulous movie the film.
           </p>
-          <button class="main__btn hightlight">
-            <a href="http://">Voir le film</a>
-          </button>
+          <button id="btnModal">Savoir Plus</button>
+          <!-- The Modal -->
+          <div id="movieModal" class="modal">
+            <div class="modal__content">
+              <div class="head__modal">
+                <h2>Titre :</h2>
+                <span class="close">&times;</span>
+              </div>
+              <div class="main__modal">
+                <div class="image">
+                  <img
+                    class="img-${index}"
+                    src="${movie.image_url}"
+                    alt="${movie.title}"
+                  />
+                </div>
+                <div class="infosTech">
+                  <p>Genres:</p>
+                  <p>Date de sortie:</p>
+                  <p>Rated :</p>
+                  <p>Score imdb</p>
+                  <p>Durée</p>
+                  <p>Pays d'origine :</p>
+                  <p>Box Office</p>
+                </div>
+                <div class="infos">
+                  <p>Réalisateur</p>
+                  <p>Les acteurs:</p>
+                  <p>Résumé du film:</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
         <img
           id="best_movie_picture"
@@ -83,15 +113,8 @@
         <div class="arrow__btn" id="left">&#139;</div>
         <div class="arrow__btn" id="right">&#155;</div>
       </div>
-      <section>
-        <script>
-          for (i = 0; i++; i < 10) {
-            console.log(i);
-            // console.log(BestMovies3[i]);
-            // console.log(BestMovies3.imdb_url);
-          }
-        </script>
-        <div class="movie">
+      <section id="carousel__data__best">
+        <!-- <div class="movie">
           <picture>
             <img src="images/films/oceans11.jpg" alt="oceans11" />
           </picture>
@@ -216,7 +239,7 @@
             <br />
             <p>New arrival</p>
           </div>
-        </div>
+        </div> -->
       </section>
 
       <div class="netflix_logo">
