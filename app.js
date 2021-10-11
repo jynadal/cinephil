@@ -63,12 +63,19 @@ left.onclick = () => {
 
 // The Modal Commande
 var btnModal = document.getElementById("btnModal");
-var modal = document.getElementById("movieModal");
-var spanClose = document.getElementsByClassName("close")[0];
+var modal = document.getElementById("BestMovieModal");
+
+var movieModal = document.getElementById("movieModal");
+var spanClose = document.getElementById("close")[0];
+var modalClose = document.getElementById("closeModal")[0];
 
 btnModal.onclick = function () {
   console.log("modal clicked!");
   modal.style.display = "block";
+};
+btnMovieModal.onclick = function () {
+  console.log("movie Modal clicked!");
+  movieModal.style.display = "block";
 };
 // btnModal.addEventListener("click", function () {
 //   console.log("click btn Modal");
@@ -76,5 +83,9 @@ btnModal.onclick = function () {
 // });
 
 spanClose.onclick = function () {
+  modal.style.display = "none";
+};
+
+modalClose.onclick = function () {
   modal.style.display = "none";
 };

@@ -61,34 +61,40 @@
             fabulous movie the film.
           </p>
           <button id="btnModal">Savoir Plus</button>
-          <!-- The Modal -->
-          <div id="movieModal" class="modal">
+          <!-- The BEST MOVIE Modal -->
+          <div id="BestMovieModal" class="modal">
             <div class="modal__content">
               <div class="head__modal">
-                <h2>Titre :</h2>
-                <span class="close">&times;</span>
+                <h2 id="best_title__modal">Titre :</h2>
+                <span id="close">&times;</span>
               </div>
               <div class="main__modal">
                 <div class="image">
-                  <img
-                    class="img-${index}"
-                    src="${movie.image_url}"
-                    alt="${movie.title}"
-                  />
+                  <img src="" alt="" class="best_picture-modal" />
                 </div>
                 <div class="infosTech">
                   <p>Genres:</p>
+                  <p class="best_genres"></p>
                   <p>Date de sortie:</p>
+                  <p class="dateDeSortie"></p>
                   <p>Rated :</p>
+                  <p class="rated"></p>
                   <p>Score imdb</p>
+                  <p class="score_imdb"></p>
                   <p>Durée</p>
+                  <p class="duree"></p>
                   <p>Pays d'origine :</p>
+                  <p class="pays"></p>
                   <p>Box Office</p>
+                  <p class="boxOffice"></p>
                 </div>
                 <div class="infos">
                   <p>Réalisateur</p>
+                  <p class="realisateurs"></p>
                   <p>Les acteurs:</p>
+                  <p class="acteurs"></p>
                   <p>Résumé du film:</p>
+                  <p class="description"></p>
                 </div>
               </div>
             </div>
@@ -98,7 +104,7 @@
           id="best_movie_picture"
           src="https://image.tmdb.org/t/p/w185/8Y43POKjKDGI9MH89NW0NAzzp8.jpg"
           alt=""
-          class="picture-movie"
+          class="hero_picture-movie"
         />
       </div>
     </header>
@@ -114,150 +120,84 @@
         <div class="arrow__btn" id="right">&#155;</div>
       </div>
       <section id="carousel__data__best">
-        <!-- <div class="movie">
-          <picture>
-            <img src="images/films/oceans11.jpg" alt="oceans11" />
-          </picture>
-          <div class="detail">
-            <h4>{bestMovie3.title}</h4>
-            <br />
-            <p>New arrival</p>
-          </div>
-        </div>
+        <!-- The MOVIES ALL BEST Modal -->
+        <script>
+          async function getInfo(id) {
+            console.log("modal clicked!");
+            modal.style.display = "block";
+            console.log(id);
+            await fetch("http://127.0.0.1:8000/api/v1/titles/" + id)
+              .then((res) => res.json())
+              .then((objects) => {
+                console.log(objects);
+                document.querySelector("#title__modal").innerText =
+                  objects.title;
+                document.querySelector("#picture-modal").src =
+                  objects.image_url;
+                document.querySelector(".hero__description").innerText =
+                  objects.description;
+                document.querySelector(".genres").innerText = objects.genres;
+                document.querySelector(".dateDeSortie").innerText =
+                  objects.date_published;
+                document.querySelector(".rated").innerText = objects.rated;
+                document.querySelector(".score_imdb").innerText =
+                  objects.imdb_score;
+                document.querySelector(".duree").innerText = objects.duration;
+                document.querySelector(".pays").innerText = objects.countries;
+                document.querySelector(".boxOffice").innerText =
+                  objects.worldwide_gross_income;
 
-        <div class="movie">
-          <picture>
-            <img src="images/films/pulp-fiction.jpg" alt="pulp-fiction" />
-          </picture>
-          <div class="detail">
-            <h4>Titre du film</h4>
-            <br />
-            <p>New arrival</p>
-          </div>
-        </div>
-        <div class="movie">
-          <picture>
-            <img src="images/films/oceans13.jpg" alt="oceans13" />
-          </picture>
-          <div class="detail">
-            <h4>Titre du film</h4>
-            <br />
-            <p>New arrival</p>
-          </div>
-        </div>
+                document.querySelector(".realisateurs").innerText =
+                  objects.directors;
+                document.querySelector(".acteurs").innerText = objects.actors;
+                document.querySelector(".description").innerText =
+                  objects.description;
 
-        <div class="movie">
-          <picture>
-            <img src="images/films/Usual-suspects.jpg" alt="Usual-suspects" />
-          </picture>
-          <div class="detail">
-            <h4>Titre du film</h4>
-            <br />
-            <p>New arrival</p>
-          </div>
-        </div>
-        <div class="movie">
-          <picture>
-            <img src="images/films/slevin.jpg" alt="slevin" />
-          </picture>
-          <div class="detail">
-            <h4>Titre du film</h4>
-            <br />
-            <p>New arrival</p>
-          </div>
-        </div>
+                console.log(objects.genres);
 
-        <div class="movie">
-          <picture>
-            <img src="images/films/oceans12.jpg" alt="oceans12" />
-          </picture>
-          <div class="detail">
-            <h4>Titre du film</h4>
-            <br />
-            <p>New arrival</p>
-          </div>
-        </div>
+                //   const descrip = objects.description;
+              });
+          }
+        </script>
 
-        <div class="movie">
-          <picture>
-            <img src="images/films/four-rooms.jpg" alt="four rooms" />
-          </picture>
-          <div class="detail">
-            <h4>Titre du film</h4>
-            <br />
-            <p>New arrival</p>
+        <div id="movieModal" class="modal">
+          <div class="modal__content">
+            <div class="head__modal">
+              <h3 id="title__modal">Titre :</h3>
+              <span id="closeModal">&times;</span>
+            </div>
+            <div class="main__modal">
+              <div class="image">
+                <img src="" alt="" class="picture-modal" />
+              </div>
+              <div class="infosTech">
+                <p>Genres:</p>
+                <p class="genres"></p>
+                <p>Date de sortie:</p>
+                <p class="dateDeSortie"></p>
+                <p>Rated :</p>
+                <p class="rated"></p>
+                <p>Score imdb</p>
+                <p class="score_imdb"></p>
+                <p>Durée</p>
+                <p class="duree"></p>
+                <p>Pays d'origine :</p>
+                <p class="pays"></p>
+                <p>Box Office</p>
+                <p class="boxOffice"></p>
+              </div>
+              <div class="infos">
+                <p>Réalisateur</p>
+                <p class="realisateurs"></p>
+                <p>Les acteurs:</p>
+                <p class="acteurs"></p>
+                <p>Résumé du film:</p>
+                <p class="description"></p>
+              </div>
+            </div>
           </div>
         </div>
-
-        <div class="movie">
-          <picture>
-            <img src="images/films/pulp-fiction.jpg" alt="pulp-fiction" />
-          </picture>
-          <div class="detail">
-            <h4>Titre du film</h4>
-            <br />
-            <p>New arrival</p>
-          </div>
-        </div>
-
-        <div class="movie">
-          <picture>
-            <img src="images/films/slevin.jpg" alt="slevin" />
-          </picture>
-          <div class="detail">
-            <h4>Titre du film</h4>
-            <br />
-            <p>New arrival</p>
-          </div>
-        </div>
-        <div class="movie">
-          <picture>
-            <img src="images/films/slevin.jpg" alt="slevin" />
-          </picture>
-          <div class="detail">
-            <h4>Titre du film</h4>
-            <br />
-            <p>New arrival</p>
-          </div>
-        </div>
-        <div class="movie">
-          <picture>
-            <img src="images/films/slevin.jpg" alt="slevin" />
-          </picture>
-          <div class="detail">
-            <h4>Titre du film</h4>
-            <br />
-            <p>New arrival</p>
-          </div>
-        </div>
-        <div class="movie">
-          <picture>
-            <img src="images/films/slevin.jpg" alt="slevin" />
-          </picture>
-          <div class="detail">
-            <h4>Titre du film</h4>
-            <br />
-            <p>New arrival</p>
-          </div>
-        </div> -->
       </section>
-
-      <div class="netflix_logo">
-        <img src="./images/netflix.png" alt="" />
-      </div>
-
-      <div class="carousel2">
-        <div class="carousel__box">
-          <!-- Random data -->
-        </div>
-
-        <button class="switchLeft sliderButton" onclick="sliderScrollLeft()">
-          <
-        </button>
-        <button class="switchRight sliderButton" onclick="sliderScrollRight()">
-          >
-        </button>
-      </div>
     </main>
     <!-- End Container section -->
 
