@@ -4,16 +4,27 @@ url = "http://localhost:8000/api/v1/titles/";
 url1 = "http://localhost:8000/api/v1/titles/?sort_by=-imdb_score";
 url2 = "http://localhost:8000/api/v1/titles/?page=2&sort_by=-imdb_score";
 
-urlGenre =
+urlAction =
   "http://localhost:8000/api/v1/titles/?genre=Action&sort_by=-imdb_score";
-urlGenre2 =
+urlAction2 =
   "http://localhost:8000/api/v1/titles/?genre=Action&page=2&sort_by=-imdb_score";
+urlSciFi =
+  "http://localhost:8000/api/v1/titles/?genre=Sci-Fi&sort_by=-imdb_score";
+urlSciFi =
+  "http://localhost:8000/api/v1/titles/?genre=Sci-Fi&sort_by=-imdb_score";
+urlThriller =
+  "http://localhost:8000/api/v1/titles/?genre=Thriller&sort_by=-imdb_score";
+urlThriller2 =
+  "http://localhost:8000/api/v1/titles/?genre=Thriller&page=2&sort_by=-imdb_score";
+urlFamily =
+  "http://localhost:8000/api/v1/titles/?genre=Family&sort_by=-imdb_score";
+urlFamily2 =
+  "http://localhost:8000/api/v1/titles/?genre=Family&sort_by=-imdb_score";
 
-api_key = "e357fd2725831204ab847c99ae0e153c";
-urlMovieDB =
-  "https://api.themoviedb.org/3/discover/movie?api_key=" +
-  api_key +
-  "&sort_by=popularity.desc ";
+urlBestGenre =
+  "http://localhost:8000/api/v1/titles/?genre=" +
+  genre +
+  "&sort_by=-imdb_score";
 
 //var carousel__BestM = document.getElementById("carousel__data");
 
@@ -87,111 +98,160 @@ async function getRatedMovie() {
             objects.description;
 
           console.log(objects.genres);
-
-          //   const descrip = objects.description;
         });
     });
 }
-// Best Movies
 
-// document.getElementById("h1").innerText = bestMovie.title;
-// document.querySelector(".hero__description").innerText = bestMovie.overview;
-// document.querySelector(".picture-movie").src = bestMovie.image_url;
+// ******************  MOVIES BY GENRES   ***************************
 
-// `https://image.tmdb.org/t/p/w185${bestMovie.poster_path}`;
+//ACTION MOVIES
 
-// Pour les catégory
+getActionMovies();
 
-// urlGenre =
-//   "http://localhost:8000/api/v1/titles/?genre=" +
-//   genre +
-//   "&sort_by=-imdb_score";
-// genre = [
-//   "Action",
-//   "Comedy",
-//   "Adventure",
-//   "Animation",
-//   "Thriller",
-//   "Family",
-//   "Fantasy",
-//   "Romance",
-//   "Sci-Fi",
-//   "Sport",
-//   "War",
-//   "Western",
-// ];
-getMovieByGenres();
-async function getMovieByGenres() {
-  await fetch(urlGenre)
-    .then((res) => res.json())
-    .then((dataGenre) => {
+async function getActionMovies() {
+  Promise.all([await fetch(urlAction), await fetch(urlAction2)])
+    .then(function (res) {
+      return Promise.all(
+        res.map(function (res) {
+          return res.json();
+        })
+      );
+    })
+    .then(function (dataGenre) {
       console.log(dataGenre);
-      const MovieGs = dataGenre.results;
-      console.log(MovieGs[0]);
-      console.log(MovieGs);
+      const MovieGs = dataGenre[0].results.concat(dataGenre[1].results);
 
       // GENRES ACTIONS
       var actionsMovies = document.getElementById("genres_content");
 
-      MovieGs.map(function (actionM, index) {
-        actionsMovies.insertAdjacentHTML(
-          "beforeend",
-          `<div class="item_box">
-          <button id="GmoviesModal" onclick="getInfoG(${actionM.id})">
-           <img  src="${actionM.image_url}" alt=${actionM.title} />
-           </button>
-           <h3>${actionM.title}</h3>
-           <div>
-          `
-        );
-      });
+      MovieGs.slice(0, 7)
+        .map(function (actionM, index) {
+          actionsMovies.insertAdjacentHTML(
+            "beforeend",
+            `<div class="item_box">
+            <button id="GmoviesModal" onclick="getInfoG(${actionM.id})">
+             <img  src="${actionM.image_url}" alt=${actionM.title} />
+             </button>
+             <h3>${actionM.title}</h3>
+             <div>
+            `
+          );
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
     });
 }
-// async function getBestMovies() {
-//   await fetch(url2)
-//     .then((res) => res.json())
-//     .then((BestMovies) => {
-//       for (i = 0; i++; i < 10) {
-//         console.log(BestMovies[i]);
-//         console.log(BestMovies.imdb_url);
-//       }
-//     })
-//     .catch(err);
-//   {
-//     console.log(err);
-//   }
+
+//FAMILY MOVIES
+
+getFamilyMovies();
+
+async function getFamilyMovies() {
+  Promise.all([await fetch(urlFamily), await fetch(urlFamily2)])
+    .then(function (res) {
+      return Promise.all(
+        res.map(function (res) {
+          return res.json();
+        })
+      );
+    })
+    .then(function (dataGenre) {
+      console.log(dataGenre);
+      const MovieGs = dataGenre[0].results.concat(dataGenre[1].results);
+
+      // GENRES
+      var familysMovies = document.getElementById("family_content");
+
+      MovieGs.slice(0, 7)
+        .map(function (familyM, index) {
+          familysMovies.insertAdjacentHTML(
+            "beforeend",
+            `<div class="item_box">
+            <button id="GmoviesModal" onclick="getInfoG(${familyM.id})">
+             <img  src="${familyM.image_url}" alt=${familyM.title} />
+             </button>
+             <h3>${familyM.title}</h3>
+             <div>
+            `
+          );
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+    });
+}
+
+//Thriller MOVIES
+
+getThrillerMovies();
+
+async function getThrillerMovies() {
+  Promise.all([await fetch(urlThriller), await fetch(urlThriller2)])
+    .then(function (res) {
+      return Promise.all(
+        res.map(function (res) {
+          return res.json();
+        })
+      );
+    })
+    .then(function (dataGenre) {
+      console.log(dataGenre);
+      const MovieGs = dataGenre[0].results.concat(dataGenre[1].results);
+
+      // GENRES
+      var thrillersMovies = document.getElementById("thriller_content");
+
+      MovieGs.slice(0, 7)
+        .map(function (thrillerM, index) {
+          thrillersMovies.insertAdjacentHTML(
+            "beforeend",
+            `<div class="item_box">
+            <button id="GmoviesModal" onclick="getInfoG(${thrillerM.id})">
+             <img  src="${thrillerM.image_url}" alt=${thrillerM.title} />
+             </button>
+             <h3>${thrillerM.title}</h3>
+             <div>
+            `
+          );
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+    });
+}
+
+// LAST EXPERIENCE
+
+//  MOVIES BY GENRES
+const genres = [
+  "Action",
+  "Comedy",
+  "Adventure",
+  "Animation",
+  "Thriller",
+  "Family",
+  "Fantasy",
+  "Romance",
+  "Sci-Fi",
+  "Sport",
+  "War",
+  "Western",
+];
+
+// var genres_movies = document.getElementById("genres_movies");
+
+genres.forEach(function (genre_movie, index, array) {
+  "http://localhost:8000/api/v1/titles/?genre=" +
+    genre_movie +
+    "&sort_by=-imdb_score";
+});
+
+// for (const genre_movie of genres) {
+//   // console.log(genre_movie);
+//   "http://localhost:8000/api/v1/titles/?genre=" +
+//     genre_movie +
+//     "&sort_by=-imdb_score";
 // }
 
-//<img class="img-${index} slider-img" src="https://image.tmdb.org/t/p/w185/${cur.poster_path}" />`
-
-// <div id="movieModal" class="modal">
-//   <div class="modal__content">
-//     <span class="close">&times;</span>
-//     <h2 id="modal__title">Titr : </h2>
-//     <div class="image">
-//       <img class="img-${index}" src="{${movie.image_url}}" alt={${movie.title}}/>
-//     </div>
-//     <div class="infosTech">
-//       <p>Genres: </p>
-//       <p>Date de sortie: </p>
-//       <p>Rated :</p>
-//       <p>Score imdb</p>
-//       <p>Durée</p>
-//       <p>Pays d'origine : </p>
-//       <p>Box Office</p>
-//     </div>
-//     <div class="infos">
-//       <p>Réalisateur</p>
-//       <p>Les acteurs: </p>
-//       <p>Résumé du film:</p>
-//     </div>
-
-//   </div>
-// </div>
-
-//  `<div class="item">
-//         <a type="button" onclick="getInfo(${actionM.id})>
-//          <img class="item" src="${actionM.image_url}" alt=${actionM.title} />
-//          </a>
-//          </div>
-//         `;
+console.log(genres[3]);
