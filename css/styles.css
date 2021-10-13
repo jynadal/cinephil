@@ -217,6 +217,31 @@ p {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  z-index: 15;
+}
+#home {
+  /* background-image: -moz-linear-gradient(
+    to right,
+    transparent 0%,
+    normal 20%,
+    normal 90%,
+    transparent 10%
+  );
+  width: 100%;
+  height: auto;
+}
+.picture-movie { */
+  background-image: linear-gradient(
+      to left,
+      transparent 0%,
+      transparent 30%,
+      black 85%
+    )
+    /* ,url("../images/developpement-web.jpg") */;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-size: auto 100%;
 }
 #best_movie_picture {
   /* background-image: -moz-linear-gradient(
@@ -248,7 +273,9 @@ p {
   top: 250px;
   left: 70px;
   padding: 30px;
-  background-color: rgb(245, 9, 146);
+  background-color: rgba(246, 242, 242, 0.3);
+  border: 2px solid lightslategrey;
+  border-radius: 15px;
 }
 
 .hero__heading {
@@ -263,8 +290,30 @@ p {
 }
 .hero__description {
   font-size: 20px;
-  margin-bottom: 20px;
+  color: lightsteelblue;
 }
+.hero__container button {
+  display: flex;
+  justify-content: center;
+  height: 50px;
+  position: relative;
+  top: 100px;
+  padding: 0 auto;
+  font-size: 25px;
+  font-weight: bold;
+  cursor: pointer;
+  /* background: -webkit-linear-gradient(to right, #e77b01, #e50914, #113ccf);
+  background: linear-gradient(to right, #e77b01, #e50914, #113ccf); */
+  /* background-color: rgba(246, 242, 242, 0.3); */
+  /* 
+  text-align: center;
+  */
+}
+/* button .savoir_plus {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+} */
 
 @media screen and (max-width: 768px) {
   .hero {
@@ -296,8 +345,9 @@ main {
   width: 100%;
   height: auto;
   /*background: red;*/
-  margin: 30px auto;
+  margin: 20px auto;
   position: relative;
+  top: 700px;
   padding: 5px 0;
 }
 main .text {
@@ -358,6 +408,7 @@ section {
   width: 90%;
   height: 600px;
   /*background: red;*/
+  /* position: absolute; */
   margin: 20px auto;
   display: flex;
   align-items: center;
@@ -434,7 +485,8 @@ p {
 /* ************
      Modal
 ***************/
-.modal {
+.bestModal,
+.moviesModal {
   display: none;
   position: fixed;
   z-index: 1;
@@ -452,6 +504,8 @@ p {
   /*background-color: #fefefe;*/
   background: linear-gradient(to right, #b20710, #e50914);
   color: black;
+  border: 2px solid #b20710;
+  border-radius: 15px;
 
   margin: auto;
   padding: 20px;
@@ -471,17 +525,124 @@ p {
   width: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
-  align-items: flex-start;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 10px;
 }
-.close {
+.modal__content span {
   color: #aaa;
   float: right;
-  font-size: 28px fonwei bold;
+  font-size: 38px;
+  font-weight: bold;
 }
-.close:hover,
-.close:focus {
+.modal__content span:hover,
+.modal__content span:focus {
   color: #000;
   text-decoration: none;
   cursor: pointer;
+}
+.infosTech,
+.infos {
+  margin-left: 55px;
+}
+.infosTech h6,
+.infos h6 {
+  margin-top: 20px;
+  color: black;
+  font-size: 20px;
+  font-weight: bold;
+}
+.infosTech p,
+.infos p {
+  margin-top: 5px;
+  color: yellow;
+  font-size: 16px;
+}
+
+/***********************
+SECTION CAROUSEL GENRES
+************************/
+
+#all__cat {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  background-color: #000;
+}
+
+#wrapper {
+  width: 100%;
+  max-width: 1540px;
+  position: relative;
+}
+
+#carousel {
+  overflow: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+}
+
+#carousel::-webkit-scrollbar {
+  height: 0;
+}
+
+#prev,
+#next {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  background: red;
+  border: none;
+  padding: 8px;
+  border-radius: 50%;
+  border: 2px solid blue;
+  outline: 0;
+  cursor: pointer;
+  position: absolute;
+}
+
+#prev {
+  top: 50%;
+  left: 0;
+  transform: translate(50%, -50%);
+  display: none;
+}
+
+#next {
+  top: 50%;
+  right: 0;
+  transform: translate(-50%, -50%);
+}
+
+#genres_content {
+  display: grid;
+  grid-gap: 25px;
+  grid-auto-flow: column;
+  margin: auto;
+  box-sizing: border-box;
+}
+.item_box button {
+  margin: 20px auto;
+  cursor: pointer;
+  background-color: transparent;
+  border: transparent;
+}
+
+.item_box img {
+  width: 280px;
+  height: 490px;
+  border-radius: 10px;
+  border: 2px solid black;
+  background: darkblue;
+  cursor: pointer;
+}
+.item_box {
+  width: 320px;
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px;
 }

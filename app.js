@@ -19,7 +19,7 @@ let movie = document.getElementsByClassName("movie");
 let movie_page = Math.ceil(movie.length / 4);
 let l = 0;
 let movePer = 25.34;
-let maxMove = 77;
+let maxMove = 203;
 // let maxMove = 203;
 
 // mobile_view
@@ -28,6 +28,8 @@ if (mob_view.matches) {
   movePer = 98;
   maxMove = 605;
 }
+// movePer = 50.36;
+// maxMove = 504;
 
 let right_mover = () => {
   l = l + movePer;
@@ -44,48 +46,84 @@ let right_mover = () => {
 };
 
 let left_mover = () => {
+  console.log("Left click!");
+  console.log(l);
   l = l - movePer;
   if (l <= 0) {
     l = 0;
   }
-  for (const i of movie) {
+  for (let i of movie) {
     if (movie_page > 1) {
+      i.style.position = "absolute";
       i.style.left = "-" + l + "%";
     }
   }
-};
-right.onclick = () => {
-  right_mover();
+  console.log(l);
 };
 left.onclick = () => {
   left_mover();
 };
+right.onclick = () => {
+  right_mover();
+};
 
 // The Modal Commande
 var btnModal = document.getElementById("btnModal");
-var modal = document.getElementById("BestMovieModal");
 
-var movieModal = document.getElementById("movieModal");
-var spanClose = document.getElementById("close")[0];
-var modalClose = document.getElementById("closeModal")[0];
+var bestModal = document.querySelector(".bestModal");
+var spanClose = document.getElementsByClassName("bestClose")[0];
 
-btnModal.onclick = function () {
-  console.log("modal clicked!");
-  modal.style.display = "block";
-};
-btnMovieModal.onclick = function () {
-  console.log("movie Modal clicked!");
-  movieModal.style.display = "block";
-};
-// btnModal.addEventListener("click", function () {
-//   console.log("click btn Modal");
-//   modal.style.display = "block";
-// });
+var moviesModal = document.querySelector(".moviesModal");
+var modalClose = document.getElementsByClassName("closeModal")[0];
+
+// btnModal.onclick = function () {
+//   console.log("modal clicked!");
+//   bestModal.style.display = "block";
+// };
+// btnMovieModal.onclick = function () {
+//   console.log("movie Modal clicked!");
+//   moviesModal.style.display = "block";
+// };
+btnModal.addEventListener("click", function () {
+  console.log(bestModal);
+  bestModal.style.display = "block";
+});
 
 spanClose.onclick = function () {
-  modal.style.display = "none";
+  bestModal.style.display = "none";
 };
 
-modalClose.onclick = function () {
-  modal.style.display = "none";
+moviesModal.onclick = function () {
+  moviesModal.style.display = "none";
 };
+
+//   NEW CAROUSEL FOR GENRES
+
+const gap = 20;
+
+const carousel = document.getElementById("carousel"),
+  content = document.getElementById("content"),
+  next = document.getElementById("next"),
+  prev = document.getElementById("prev");
+
+next.addEventListener("click", (e) => {
+  carousel.scrollBy(width + gap, 0);
+  if (carousel.scrollWidth !== 0) {
+    prev.style.display = "flex";
+  }
+  if (content.scrollWidth - width - gap <= carousel.scrollLeft + width) {
+    next.style.display = "none";
+  }
+});
+prev.addEventListener("click", (e) => {
+  carousel.scrollBy(-(width + gap), 0);
+  if (carousel.scrollLeft - width - gap <= 0) {
+    prev.style.display = "none";
+  }
+  if (!content.scrollWidth - width - gap <= carousel.scrollLeft + width) {
+    next.style.display = "flex";
+  }
+});
+
+let width = carousel.offsetWidth;
+window.addEventListener("resize", (e) => (width = carousel.offsetWidth));
