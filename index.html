@@ -107,23 +107,56 @@
       </div>
     </header>
     <!-- End Hero section -->
-    <!-- Begin Container section -->
+    
+<!-- *******************************************
+    MAIN SECTION WITH BEST MOVIES AND GENRES SECTION
+           **********************************************-->
+  
+<main class="main__container">
+  <!-- Begin Container section -->
 
-    <main class="main__container">
-      <header>
-        <h1>All Best Movies</h1>
-      </header>
-      <div class="arrow">
-        <div class="arrow__btn" id="left">&#139;</div>
-        <div class="arrow__btn" id="right">&#155;</div>
+  <!--  CAROUSEL BEST MOVIE HERE from dataAPI-->
+  <section id="carousel__data__best">
+
+        <header>
+          <h2 class="best movies">CATEGORIE <span class="genres">BEST MOVIES</span></h2>
+        </header>
+
+      <div id="wrapper">
+      <div id="carousel">
+        <div id="bestMovies_content">
+          <!--  CAROUSEL HERE from dataAPI-->
+        </div>
       </div>
+      <button id="prev">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+        >
+          <path fill="none" d="M0 0h24v24H0V0z" />
+          <path d="M15.61 7.41L14.2 6l-6 6 6 6 1.41-1.41L11.03 12l4.58-4.59z" />
+        </svg>
+      </button>
+      <button id="next">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+        >
+          <path fill="none" d="M0 0h24v24H0V0z" />
+          <path d="M10.02 6L8.61 7.41 13.19 12l-4.58 4.59L10.02 18l6-6-6-6z" />
+        </svg>
+      </button>
+    </div>
 
-
-      <section id="carousel__data__best">
-        <!-- The MOVIES ALL BEST Modal -->
+      
+        <!-- The MOVIES of Best Modal -->
         <script>
-          async function getInfo(id) {
-            console.log("modal clicked!");
+          async function getInfoG(id) {
+            console.log("modal Genre clicked!"+ id);
             moviesModal.style.display = "block";
             console.log("http://127.0.0.1:8000/api/v1/titles/" + id);
             await fetch("http://127.0.0.1:8000/api/v1/titles/" + id)
@@ -199,6 +232,101 @@
           </div>
         </div>
       </section>
+
+
+
+
+
+
+      <!-- <header>
+        <h1>All Best Movies</h1>
+      </header>
+      <div class="arrow">
+        <div class="arrow__btn" id="left">&#139;</div>
+        <div class="arrow__btn" id="right">&#155;</div>
+      </div> -->
+
+
+      <!-- <section id="carousel__data__best">
+        <!-- The MOVIES ALL BEST Modal -->
+        <!-- <script>
+          async function getInfo(id) {
+            console.log("modal clicked!");
+            moviesModal.style.display = "block";
+            console.log("http://127.0.0.1:8000/api/v1/titles/" + id);
+            await fetch("http://127.0.0.1:8000/api/v1/titles/" + id)
+              .then((res) => res.json())
+              .then((objects) => {
+                console.log(objects);
+                document.querySelector("#title__modal").innerText =
+                  objects.title;
+                document.querySelector(".picture-modal").src =
+                  objects.image_url;
+                document.querySelector(".description").innerText =
+                  objects.description;
+                document.querySelector(".genres").innerText = objects.genres;
+                document.querySelector(".dateDeSortie").innerText =
+                  objects.date_published;
+                document.querySelector(".imdb_score").innerText =
+                  objects.imdb_score;
+                document.querySelector(".duree").innerText = objects.duration;
+                console.log(objects.duration);
+
+                document.querySelector(".pays").innerText = objects.countries;
+                console.log(objects.countries);
+                document.querySelector(".boxOffice").innerText =
+                  objects.worldwide_gross_income;
+                document.querySelector(".rated").innerText = objects.rated;
+
+                document.querySelector(".realisateurs").innerText =
+                  objects.directors;
+                document.querySelector(".acteurs").innerText = objects.actors;
+
+                console.log(objects.genres);
+
+                //   const descrip = objects.description;
+              });
+          }
+        </script> --> -->
+
+        <!-- <div id="movieModal" class="moviesModal">
+          <div class="modal__content">
+            <div class="head__modal">
+              <h3 id="title__modal">Titre :</h3>
+              <span class="closeModal">&times;</span>
+            </div>
+            <div class="main__modal">
+              <div class="image">
+                <img src="" alt="" class="picture-modal" />
+              </div>
+              <div class="infosTech">
+                <h6>Genres:</h6>
+                <p class="genres"></p>
+                <h6>Date de sortie:</h6>
+                <p class="dateDeSortie"></p>
+                <h6>Rated :</h6>
+                <p class="rated"></p>
+                <h6>Score imdb</h6>
+                <p class="imdb_score"></p>
+                <h6>Durée</h6>
+                <p class="duree"></p>
+                <h6>Pays d'origine :</h6>
+                <p class="pays"></p>
+                <h6>Box Office</h6>
+                <p class="boxOffice"></p>
+              </div>
+              <div class="infos">
+                <h6>Réalisateur</h6>
+                <p class="realisateurs"></p>
+                <h6>Les acteurs:</h6>
+                <p class="acteurs"></p>
+                <h6>Résumé du film:</h6>
+                <p class="description"></p>
+              </div>
+            </div>
+          </div>
+        </div> 
+      </section>-->
 
 <!--  ********************     SECTION CATEGORIE 1    *******************-->
       <section id="all__cat">
