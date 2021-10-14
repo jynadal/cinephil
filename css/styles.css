@@ -563,7 +563,7 @@ p {
 /***********************
 SECTION CAROUSEL GENRES
 ************************/
-
+#carousel__data__best,
 #all__cat {
   display: flex;
   justify-content: center;
@@ -571,23 +571,24 @@ SECTION CAROUSEL GENRES
   flex-direction: column;
   /* width: 100%; */
   height: 100vh;
-  background: linear-gradient(
+  /* background: linear-gradient(
       to left,
       black 0%,
       transparent 30%,
       transparent 70%,
       black 100%
     ),
-    url("../images/sf.jpg") no-repeat;
-  /* background-image: linear-gradient(
+    url("../images/sf.jpg") no-repeat; */
+  background-image: linear-gradient(
     to right,
     #ff0000 0%,
     #ff0000 25%,
     #890000 50%,
     #540000 75%,
     #240000 100%
-  ); */
+  );
 }
+#carousel__data__best header,
 #all__cat header {
   display: flex;
   justify-content: center;
@@ -603,18 +604,28 @@ SECTION CAROUSEL GENRES
   position: relative;
 }
 
+#actionsCarousel,
 #carousel {
   overflow: auto;
   scroll-behavior: smooth;
   scrollbar-width: none;
 }
 
-#carousel::-webkit-scrollbar {
+#carousel::-webkit-scrollbar,
+#actionsCarousel::-webkit-scrollbar {
   height: 0;
 }
 
 #prev,
-#next {
+#prevActions,
+#prevBest,
+#prevFamily,
+#prevThriller,
+#next,
+#nextActions,
+#nextBest,
+#nextFamily,
+#nextThriller {
   display: flex;
   justify-content: center;
   align-content: center;
@@ -628,20 +639,31 @@ SECTION CAROUSEL GENRES
   position: absolute;
 }
 
-#prev {
+#prev,
+#prevActions,
+#prevBest,
+#prevFamily,
+#prevThriller {
   top: 50%;
   left: 0;
   transform: translate(50%, -50%);
   display: none;
 }
-
-#next {
+#next,
+#nextActions,
+#nextBest,
+#nextFamily,
+#nextThriller {
   top: 50%;
   right: 0;
   transform: translate(-50%, -50%);
 }
 
-#genres_content {
+#content,
+#genres_content,
+#thriller_content,
+#family_content,
+#bestMovies_content {
   display: grid;
   grid-gap: 25px;
   grid-auto-flow: column;

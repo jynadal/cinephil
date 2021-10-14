@@ -21,10 +21,10 @@ urlFamily =
 urlFamily2 =
   "http://localhost:8000/api/v1/titles/?genre=Family&sort_by=-imdb_score";
 
-urlBestGenre =
-  "http://localhost:8000/api/v1/titles/?genre=" +
-  genre +
-  "&sort_by=-imdb_score";
+// urlBestGenre =
+//   "http://localhost:8000/api/v1/titles/?genre=" +
+//   genre +
+//   "&sort_by=-imdb_score";
 
 //var carousel__BestM = document.getElementById("carousel__data");
 
@@ -45,63 +45,63 @@ async function getRatedMovie() {
     })
     .then(function (data1) {
       console.log(data1);
-      const BestMovies = data1.results;
+      const BestMovies = data1[0].results.concat(data1[1].results);
       const BestMovie = BestMovies[0];
       console.log(BestMovies);
+      console.log(BestMovie.id);
       // BEST MOVIE
       document.getElementById("h1").innerText = BestMovie.title;
       document.getElementById("best_title__modal").innerText = BestMovie.title;
       document.getElementById("home").url = BestMovie.image_url;
       document.querySelector(".hero_picture-movie").src = BestMovie.image_url;
       document.querySelector(".best_picture-modal").src = BestMovie.image_url;
-      const MovieGs = dataGenre[0].results.concat(dataGenre[1].results);
 
       // BEST MOVIES CAROUSEL
-      var carousel__BestM = document.getElementById("bestMovies_content");
+      var carousel__BestM = document.getElementById("content");
 
-      BestMovies.slice(0, 7)
-        .map(function (movie, index) {
-          carousel__BestM.insertAdjacentHTML(
-            "beforeend",
-            `<div class="item_box">
-            <button id="GmoviesModal" onclick="getInfoG(${movie.id})">
+      BestMovies.slice(0, 7).map(function (movie, index) {
+        carousel__BestM.insertAdjacentHTML(
+          "beforeend",
+          `<div class="item_box">
+            <button id="BmoviesModal" onclick="getInfoG(${movie.id})">
              <img  src="${movie.image_url}" alt=${movie.title} />
              </button>
              <h3>${movie.title}</h3>
              <div>
             `
-          );
-        })
-        .catch(function (error) {
-          console.log(error);
-        });
+        );
+      }).catch = (error) => {
+        console.log(error);
+      };
+    });
+
+  //HERO BEST MOVIE
+
+  fetch("http://localhost:8000/api/v1/titles/1508669")
+    .then((res) => res.json())
+    .then((objects) => {
+      console.log(objects);
+      document.querySelector(".hero__description").innerText =
+        objects.description;
+      document.querySelector(".best_genres").innerText = objects.genres;
+      document.querySelector(".best_dateDeSortie").innerText =
+        objects.date_published;
+      document.querySelector(".best_rated").innerText = objects.rated;
+      document.querySelector(".best_score_imdb").innerText = objects.imdb_score;
+      document.querySelector(".best_duree").innerText = objects.duration;
+      document.querySelector(".best_pays").innerText = objects.countries;
+      document.querySelector(".best_boxOffice").innerText =
+        objects.worldwide_gross_income;
+
+      document.querySelector(".best_realisateurs").innerText =
+        objects.directors;
+      document.querySelector(".best_acteurs").innerText = objects.actors;
+      document.querySelector(".best_description").innerText =
+        objects.description;
+
+      console.log(objects.genres);
     });
 }
-
-//HERO BEST MOVIE
-
-await fetch(BestMovie.url)
-  .then((res) => res.json())
-  .then((objects) => {
-    console.log(objects);
-    document.querySelector(".hero__description").innerText =
-      objects.description;
-    document.querySelector(".best_genres").innerText = objects.genres;
-    document.querySelector(".best_dateDeSortie").innerText =
-      objects.date_published;
-    document.querySelector(".best_rated").innerText = objects.rated;
-    document.querySelector(".best_score_imdb").innerText = objects.imdb_score;
-    document.querySelector(".best_duree").innerText = objects.duration;
-    document.querySelector(".best_pays").innerText = objects.countries;
-    document.querySelector(".best_boxOffice").innerText =
-      objects.worldwide_gross_income;
-
-    document.querySelector(".best_realisateurs").innerText = objects.directors;
-    document.querySelector(".best_acteurs").innerText = objects.actors;
-    document.querySelector(".best_description").innerText = objects.description;
-
-    console.log(objects.genres);
-  });
 
 // ******************  MOVIES BY GENRES   ***************************
 
@@ -125,22 +125,20 @@ async function getActionMovies() {
       // GENRES ACTIONS
       var actionsMovies = document.getElementById("genres_content");
 
-      MovieGs.slice(0, 7)
-        .map(function (actionM, index) {
-          actionsMovies.insertAdjacentHTML(
-            "beforeend",
-            `<div class="item_box">
+      MovieGs.slice(0, 7).map(function (actionM, index) {
+        actionsMovies.insertAdjacentHTML(
+          "beforeend",
+          `<div class="item_box">
             <button id="GmoviesModal" onclick="getInfoG(${actionM.id})">
              <img  src="${actionM.image_url}" alt=${actionM.title} />
              </button>
              <h3>${actionM.title}</h3>
              <div>
             `
-          );
-        })
-        .catch(function (error) {
-          console.log(error);
-        });
+        );
+      }).catch = (error) => {
+        console.log(error);
+      };
     });
 }
 
@@ -164,22 +162,20 @@ async function getFamilyMovies() {
       // GENRES
       var familysMovies = document.getElementById("family_content");
 
-      MovieGs.slice(0, 7)
-        .map(function (familyM, index) {
-          familysMovies.insertAdjacentHTML(
-            "beforeend",
-            `<div class="item_box">
+      MovieGs.slice(0, 7).map(function (familyM, index) {
+        familysMovies.insertAdjacentHTML(
+          "beforeend",
+          `<div class="item_box">
             <button id="GmoviesModal" onclick="getInfoG(${familyM.id})">
              <img  src="${familyM.image_url}" alt=${familyM.title} />
              </button>
              <h3>${familyM.title}</h3>
              <div>
             `
-          );
-        })
-        .catch(function (error) {
-          console.log(error);
-        });
+        );
+      }).catch = (error) => {
+        console.log(error);
+      };
     });
 }
 
@@ -203,22 +199,20 @@ async function getThrillerMovies() {
       // GENRES
       var thrillersMovies = document.getElementById("thriller_content");
 
-      MovieGs.slice(0, 7)
-        .map(function (thrillerM, index) {
-          thrillersMovies.insertAdjacentHTML(
-            "beforeend",
-            `<div class="item_box">
+      MovieGs.slice(0, 7).map(function (thrillerM, index) {
+        thrillersMovies.insertAdjacentHTML(
+          "beforeend",
+          `<div class="item_box">
             <button id="GmoviesModal" onclick="getInfoG(${thrillerM.id})">
              <img  src="${thrillerM.image_url}" alt=${thrillerM.title} />
              </button>
              <h3>${thrillerM.title}</h3>
              <div>
             `
-          );
-        })
-        .catch(function (error) {
-          console.log(error);
-        });
+        );
+      }).catch = (error) => {
+        console.log(error);
+      };
     });
 }
 

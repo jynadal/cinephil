@@ -12,60 +12,60 @@ menu.addEventListener("click", mobileMenu);
 
 // ********* CAROUSEL ***************
 
-let left = document.getElementById("left");
-let right = document.getElementById("right");
+// let left = document.getElementById("left");
+// let right = document.getElementById("right");
 
-let movie = document.getElementsByClassName("movie");
-let movie_page = Math.ceil(movie.length / 4);
-let l = 0;
-let movePer = 25.34;
-let maxMove = 203;
+// let movie = document.getElementsByClassName("movie");
+// let movie_page = Math.ceil(movie.length / 4);
+// let l = 0;
+// let movePer = 25.34;
 // let maxMove = 203;
+// // let maxMove = 203;
 
-// mobile_view
-let mob_view = window.matchMedia("(max-width: 768px)");
-if (mob_view.matches) {
-  movePer = 98;
-  maxMove = 605;
-}
-// movePer = 50.36;
-// maxMove = 504;
+// // mobile_view
+// let mob_view = window.matchMedia("(max-width: 768px)");
+// if (mob_view.matches) {
+//   movePer = 98;
+//   maxMove = 605;
+// }
+// // movePer = 50.36;
+// // maxMove = 504;
 
-let right_mover = () => {
-  l = l + movePer;
-  if (movie == 1) {
-    l = 0;
-  }
-  for (const i of movie) {
-    if (l > maxMove) {
-      l = l - movePer;
-    }
-    i.style.left = "-" + l + "%";
-  }
-  console.log(l);
-};
+// let right_mover = () => {
+//   l = l + movePer;
+//   if (movie == 1) {
+//     l = 0;
+//   }
+//   for (const i of movie) {
+//     if (l > maxMove) {
+//       l = l - movePer;
+//     }
+//     i.style.left = "-" + l + "%";
+//   }
+//   console.log(l);
+// };
 
-let left_mover = () => {
-  console.log("Left click!");
-  console.log(l);
-  l = l - movePer;
-  if (l <= 0) {
-    l = 0;
-  }
-  for (let i of movie) {
-    if (movie_page > 1) {
-      i.style.position = "absolute";
-      i.style.left = "-" + l + "%";
-    }
-  }
-  console.log(l);
-};
-left.onclick = () => {
-  left_mover();
-};
-right.onclick = () => {
-  right_mover();
-};
+// let left_mover = () => {
+//   console.log("Left click!");
+//   console.log(l);
+//   l = l - movePer;
+//   if (l <= 0) {
+//     l = 0;
+//   }
+//   for (let i of movie) {
+//     if (movie_page > 1) {
+//       i.style.position = "absolute";
+//       i.style.left = "-" + l + "%";
+//     }
+//   }
+//   console.log(l);
+// };
+// left.onclick = () => {
+//   left_mover();
+// };
+// right.onclick = () => {
+//   right_mover();
+// };
 
 // The Modal Commande
 var btnModal = document.getElementById("btnModal");
@@ -101,12 +101,28 @@ moviesModal.onclick = function () {
 
 const gap = 20;
 
-const carousel = document.getElementById("carousel"),
-  content = document.getElementById("content"),
-  next = document.getElementById("next"),
-  prev = document.getElementById("prev");
+const carousel = document.getElementById("carousel");
+let next = document.getElementById("next");
+var prev = document.getElementById("prev");
+var content = document.getElementById("content");
+
+// const carousel = document.getElementById("carousel");
+let next = document.getElementById("nextActions");
+let prev = document.getElementById("prevActions");
+var content = document.getElementById("actions_content");
+
+// next = document.getElementById("nextBest"),
+// prev = document.getElementById("prevBest");
+
+// const familyCarousel = document.getElementById("family_carousel"),
+// next = document.getElementById("nextFamily"),
+// prev = document.getElementById("prevFamily");
+// const thrillerCarousel = document.getElementById("thriller_carousel"),
+//   next = document.getElementById("nextThriller"),
+//   prev = document.getElementById("prevThriller");
 
 next.addEventListener("click", (e) => {
+  console.log("next btn clicked !");
   carousel.scrollBy(width + gap, 0);
   if (carousel.scrollWidth !== 0) {
     prev.style.display = "flex";
