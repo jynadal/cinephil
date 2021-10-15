@@ -17,6 +17,11 @@ ul {
 p {
   font-family: "Roboto", sans-serif;
 }
+h3 {
+  color: beige;
+  font-size: 18px;
+  font-weight: bold;
+}
 
 .navbar {
   background-color: transparent;
@@ -345,7 +350,7 @@ p {
 main {
   width: 100%;
   height: auto;
-  background: cyan;
+  background: black;
   margin: 20px auto;
   position: relative;
   top: 700px;
@@ -619,7 +624,7 @@ SECTION CAROUSEL GENRES
   align-items: center;
   font-size: 28px;
   margin-bottom: 25px;
-  color: firebrick;
+  color: #fff;
 }
 
 #wrapper,
