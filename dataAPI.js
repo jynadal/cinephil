@@ -25,37 +25,7 @@ urlFamily =
 urlFamily2 =
   "http://localhost:8000/api/v1/titles/?genre=Family&sort_by=-imdb_score";
 
-// urlBestGenre =
-//   "http://localhost:8000/api/v1/titles/?genre=" +
-//   genre +
-//   "&sort_by=-imdb_score";
-
-//var carousel__BestM = document.getElementById("carousel__data");
-
 // ******************  HERO AND BEST MOVIES  ***************************
-
-// BEST MOVIES
-// let carousel_section = document.getElementById("carousel_section_genre");
-// carousel_section.addEventListener("onchange", (e) => {
-//   console.log((carousel_section.addEventListener.value = this.value));
-//   // console.log(`e.target.value = ${e.target.value}`);
-// });
-
-// if (carousel_section === "bestMovies") {
-//   getRatedMovie();
-// }
-// if (carousel_section === "actionsMovies") getActionMovies();
-// if (carousel_section === "familyMovies") getFamilyMovies();
-//});
-
-// function getGenre() {
-//   console.log(carousel_section);
-//   if (carousel_section === "bestMovies") {
-//     getRatedMovie();
-//   }
-//   if (carousel_section === "actionsMovies") getActionMovies();
-//   if (carousel_section === "familyMovies") getFamilyMovies();
-// }
 
 getRatedMovie();
 
@@ -370,7 +340,6 @@ async function getActionMovies() {
   );
 }
 
-// ***************************************************************************************
 //     Adventure MOVIES
 
 getAdventureMovies();
@@ -456,28 +425,26 @@ async function getAdventureMovies() {
 // LAST EXPERIENCE
 
 //  MOVIES BY GENRES
-const all_genres = [
-  "Action",
-  "Comedy",
-  "Adventure",
-  "Animation",
-  "Thriller",
-  "Family",
-  "Fantasy",
-  "Romance",
-  "Sci-Fi",
-  "Sport",
-  "War",
-  "Western",
-];
+// const all_genres = [
+//   "Action",
+//   "Comedy",
+//   "Adventure",
+//   "Animation",
+//   "Thriller",
+//   "Family",
+//   "Fantasy",
+//   "Romance",
+//   "Sci-Fi",
+//   "Sport",
+//   "War",
+//   "Western",
+// ];
 
-// var genres_movies = document.getElementById("genres_movies");
-
-all_genres.forEach(function (genre_movie, index, array) {
-  "http://localhost:8000/api/v1/titles/?genre=" +
-    genre_movie +
-    "&sort_by=-imdb_score";
-});
+// all_genres.forEach(function (genre_movie, index, array) {
+//   "http://localhost:8000/api/v1/titles/?genre=" +
+//     genre_movie +
+//     "&sort_by=-imdb_score";
+// });
 
 // for (const genre_movie of genres) {
 //   // console.log(genre_movie);
@@ -485,5 +452,3 @@ all_genres.forEach(function (genre_movie, index, array) {
 //     genre_movie +
 //     "&sort_by=-imdb_score";
 // }
-
-console.log(genres[3]);
