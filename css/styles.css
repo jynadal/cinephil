@@ -345,7 +345,7 @@ p {
 main {
   width: 100%;
   height: auto;
-  background: black;
+  background: cyan;
   margin: 20px auto;
   position: relative;
   top: 700px;
@@ -482,7 +482,27 @@ p {
     padding: 6px 10px;
   }
 }
-
+label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 260px;
+  margin: 200px auto;
+  background-color: antiquewhite;
+}
+select {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 60px;
+  margin: 50px auto;
+  background-color: antiquewhite;
+  text-align: center;
+  font-size: 50px;
+  font-weight: bold;
+}
 /* ************
      Modal
 ***************/
@@ -564,7 +584,9 @@ p {
 SECTION CAROUSEL GENRES
 ************************/
 #carousel__data__best,
-#all__cat {
+#all__cat_S1,
+#all__cat_Ad, /*#all__cat_S2,*/
+#all__cat_S3 {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -589,7 +611,9 @@ SECTION CAROUSEL GENRES
   );
 }
 #carousel__data__best header,
-#all__cat header {
+#all__cat_S1 header,
+#all__cat_Ad header,/*#all__cat_S2 header,*/
+#all__cat_S3 header {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -598,21 +622,34 @@ SECTION CAROUSEL GENRES
   color: firebrick;
 }
 
-#wrapper {
+#wrapper,
+#wrapperS1,
+#wrapperAd, /* #wrapperS2, */
+#wrapperS3 {
   width: 100%;
   max-width: 1540px;
   position: relative;
 }
 
-#actionsCarousel,
-#carousel {
+#actions_carousel,
+#adventure_carousel,
+#family_carousel,
+#carouselS1,/* thriller_carousel */
+#carousel,
+.carousel {
   overflow: auto;
   scroll-behavior: smooth;
   scrollbar-width: none;
 }
 
+adventure
+
 #carousel::-webkit-scrollbar,
-#actionsCarousel::-webkit-scrollbar {
+/* #carouselS1::-webkit-scrollbar, */
+#thriller_carousel::-webkit-scrollbar,
+#adventure_carousel::-webkit-scrollbar,
+#family_carousel::-webkit-scrollbar,
+#actions_carousel::-webkit-scrollbar {
   height: 0;
 }
 
@@ -620,11 +657,13 @@ SECTION CAROUSEL GENRES
 #prevActions,
 #prevBest,
 #prevFamily,
+#prevAdventure,
 #prevThriller,
 #next,
 #nextActions,
 #nextBest,
 #nextFamily,
+#nextAdventure,
 #nextThriller {
   display: flex;
   justify-content: center;
@@ -640,9 +679,10 @@ SECTION CAROUSEL GENRES
 }
 
 #prev,
+#prevFamily,
 #prevActions,
 #prevBest,
-#prevFamily,
+#prevAdventure,
 #prevThriller {
   top: 50%;
   left: 0;
@@ -653,6 +693,7 @@ SECTION CAROUSEL GENRES
 #nextActions,
 #nextBest,
 #nextFamily,
+#nextAdventure,
 #nextThriller {
   top: 50%;
   right: 0;
@@ -660,7 +701,8 @@ SECTION CAROUSEL GENRES
 }
 
 #content,
-#genres_content,
+#actions_content,
+#adventure_content,
 #thriller_content,
 #family_content,
 #bestMovies_content {

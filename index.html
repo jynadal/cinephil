@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Fleur+De+Leah&family=Open+Sans&family=Permanent+Marker&family=Pinyon+Script&family=Roboto&display=swap"
+      href="https://fonts.googleapis.com/csS3?family=Fleur+De+Leah&family=Open+Sans&family=Permanent+Marker&family=Pinyon+Script&family=Roboto&display=swap"
       rel="stylesheet"
     />
   </head>
@@ -114,12 +114,51 @@
   
 <main class="main__container">
   <!-- Begin Container section -->
+<!-- <div class="label">
+  <label for= "carousel_genres">Choisissez votre genre de film    </label>
+      <select name="movies" id="carousel_section_genres">
+        <option value="bestMovies" selected>Best Movies</option>
+         <option value="Actions" >Actions</option>
+          <option value="Comedy" >Comedy</option>
+           <option value="Thriller" >Thriller</option>
+        
+        <script>
+          //  MOVIES BY GENRES
+              const all_genres = [
+                "Action",
+                "Comedy",
+                "Adventure",
+                "Animation",
+                "Thriller",
+                "Family",
+                "Fantasy",
+                "Romance",
+                "Sci-Fi",
+                "Sport",
+                "War",
+                "Western",
+              ];
+
+              var cat_genre = document.getElementById("carousel_section_genres")
+              for (let genre_movie of all_genres) {
+                 cat_genre.insertAdjacentHTML(
+                   'beforend',
+                  `<option value="${genre_movie}">${genre_movie}</option>`
+                )
+              }
+                  </script>
+
+      </select>
+</div> -->
 
   <!--  CAROUSEL BEST MOVIE HERE from dataAPI-->
-  <section id="carousel__data__best">
 
-        <header>
-          <h2 class="best movies">CATEGORIE <span class="genres">BEST MOVIES</span></h2>
+   <section id="carousel__data__best">
+
+    <header>
+      
+          
+          <h2 class="best movies">CATEGORIE <span class="genres"></span></h2>
         </header>
 
       <div id="wrapper">
@@ -232,17 +271,253 @@
           </div>
         </div>
       </section>
+ <!--  ********************     SECTION CATEGORIE 1    *******************-->
+<section id="all__cat_S1">
+      
+  <header>
+    <h2 class=${genres}>CATEGORIE <span class="genres">Thriller</span></h2>
+  </header>
+      
+    <div id="wrapperS1">
+        <div id="thriller_carousel" class="carousel">
+          <div id="thriller_content" >
+            <!--  CAROUSEL HERE from dataAPI-->
+          </div>
+        </div>
+        <button id="prevThriller">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+          >
+            <path fill="none" d="M0 0h24v24H0V0z" />
+            <path d="M15.61 7.41L14.2 6l-6 6 6 6 1.41-1.41L11.03 12l4.58-4.59z" />
+          </svg>
+        </button>
+        <button id="nextThriller">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+          >
+            <path fill="none" d="M0 0h24v24H0V0z" />
+            <path d="M10.02 6L8.61 7.41 13.19 12l-4.58 4.59L10.02 18l6-6-6-6z" />
+          </svg>
+        </button>
+    </div>
+         
+            
+              <!-- The MOVIES of GENRE Modal -->
+              <script>
+                async function getInfoG(id) {
+                  console.log("modal Genre clicked!"+ id);
+                  moviesModal.style.display = "block";
+                  console.log("http://127.0.0.1:8000/api/v1/titles/" + id);
+                  await fetch("http://127.0.0.1:8000/api/v1/titles/" + id)
+                    .then((res) => res.json())
+                    .then((objects) => {
+                      console.log(objects);
+                      document.querySelector("#title__modal").innerText =
+                        objects.title;
+                      document.querySelector(".picture-modal").src =
+                        objects.image_url;
+                      document.querySelector(".description").innerText =
+                        objects.description;
+                      document.querySelector(".genres").innerText = objects.genres;
+                      document.querySelector(".dateDeSortie").innerText =
+                        objects.date_published;
+                      document.querySelector(".imdb_score").innerText =
+                        objects.imdb_score;
+                      document.querySelector(".duree").innerText = objects.duration;
+                      console.log(objects.duration);
+      
+                      document.querySelector(".pays").innerText = objects.countries;
+                      console.log(objects.countries);
+                      document.querySelector(".boxOffice").innerText =
+                        objects.worldwide_gross_income;
+                      document.querySelector(".rated").innerText = objects.rated;
+      
+                      document.querySelector(".realisateurs").innerText =
+                        objects.directors;
+                      document.querySelector(".acteurs").innerText = objects.actors;
+      
+                      console.log(objects.genres);
+      
+                      //   const descrip = objects.description;
+                    });
+                }
+              </script>
+      
+        <div id="movieModal" class="moviesModal">
+          <div class="modal__content">
+            <div class="head__modal">
+              <h3 id="title__modal">Titre :</h3>
+              <span class="closeModal">&times;</span>
+            </div>
+            <div class="main__modal">
+              <div class="image">
+                <img src="" alt="" class="picture-modal" />
+              </div>
+              <div class="infosTech">
+                <h6>Genres:</h6>
+                <p class="genres"></p>
+                <h6>Date de sortie:</h6>
+                <p class="dateDeSortie"></p>
+                <h6>Rated :</h6>
+                <p class="rated"></p>
+                <h6>Score imdb</h6>
+                <p class="imdb_score"></p>
+                <h6>Durée</h6>
+                <p class="duree"></p>
+                <h6>Pays d'origine :</h6>
+                <p class="pays"></p>
+                <h6>Box Office</h6>
+                <p class="boxOffice"></p>
+              </div>
+              <div class="infos">
+                <h6>Réalisateur</h6>
+                <p class="realisateurs"></p>
+                <h6>Les acteurs:</h6>
+                <p class="acteurs"></p>
+                <h6>Résumé du film:</h6>
+                <p class="description"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+</section>  
 
-<!--  ********************     SECTION CATEGORIE 1    *******************-->
-   
-<section id="all__cat">
+<!--  ********************     SECTION CATEGORIE 2    *******************-->
+
+<section id="all__cat_Ad">
+      
+  <header>
+    <h2 class=genres>CATEGORIE ADVENTURE </h2>
+  </header>
+      
+    <div id="wrapperAd">
+        <div id="adventure_carousel" class="carousel">
+          <div id="adventure_content" >
+            <!--  CAROUSEL HERE from dataAPI-->
+          </div>
+        </div>
+        <button id="prevAdventure">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+          >
+            <path fill="none" d="M0 0h24v24H0V0z" />
+            <path d="M15.61 7.41L14.2 6l-6 6 6 6 1.41-1.41L11.03 12l4.58-4.59z" />
+          </svg>
+        </button>
+        <button id="nextAdventure">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+          >
+            <path fill="none" d="M0 0h24v24H0V0z" />
+            <path d="M10.02 6L8.61 7.41 13.19 12l-4.58 4.59L10.02 18l6-6-6-6z" />
+          </svg>
+        </button>
+    </div>
+         
+            
+              <!-- The MOVIES of GENRE Modal -->
+              <script>
+                async function getInfoG(id) {
+                  console.log("modal Genre clicked!"+ id);
+                  moviesModal.style.display = "block";
+                  console.log("http://127.0.0.1:8000/api/v1/titles/" + id);
+                  await fetch("http://127.0.0.1:8000/api/v1/titles/" + id)
+                    .then((res) => res.json())
+                    .then((objects) => {
+                      console.log(objects);
+                      document.querySelector("#title__modal").innerText =
+                        objects.title;
+                      document.querySelector(".picture-modal").src =
+                        objects.image_url;
+                      document.querySelector(".description").innerText =
+                        objects.description;
+                      document.querySelector(".genres").innerText = objects.genres;
+                      document.querySelector(".dateDeSortie").innerText =
+                        objects.date_published;
+                      document.querySelector(".imdb_score").innerText =
+                        objects.imdb_score;
+                      document.querySelector(".duree").innerText = objects.duration;
+                      console.log(objects.duration);
+      
+                      document.querySelector(".pays").innerText = objects.countries;
+                      console.log(objects.countries);
+                      document.querySelector(".boxOffice").innerText =
+                        objects.worldwide_gross_income;
+                      document.querySelector(".rated").innerText = objects.rated;
+      
+                      document.querySelector(".realisateurs").innerText =
+                        objects.directors;
+                      document.querySelector(".acteurs").innerText = objects.actors;
+      
+                      console.log(objects.genres);
+      
+                      //   const descrip = objects.description;
+                    });
+                }
+              </script>
+      
+        <div id="movieModal" class="moviesModal">
+          <div class="modal__content">
+            <div class="head__modal">
+              <h3 id="title__modal">Titre :</h3>
+              <span class="closeModal">&times;</span>
+            </div>
+            <div class="main__modal">
+              <div class="image">
+                <img src="" alt="" class="picture-modal" />
+              </div>
+              <div class="infosTech">
+                <h6>Genres:</h6>
+                <p class="genres"></p>
+                <h6>Date de sortie:</h6>
+                <p class="dateDeSortie"></p>
+                <h6>Rated :</h6>
+                <p class="rated"></p>
+                <h6>Score imdb</h6>
+                <p class="imdb_score"></p>
+                <h6>Durée</h6>
+                <p class="duree"></p>
+                <h6>Pays d'origine :</h6>
+                <p class="pays"></p>
+                <h6>Box Office</h6>
+                <p class="boxOffice"></p>
+              </div>
+              <div class="infos">
+                <h6>Réalisateur</h6>
+                <p class="realisateurs"></p>
+                <h6>Les acteurs:</h6>
+                <p class="acteurs"></p>
+                <h6>Résumé du film:</h6>
+                <p class="description"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+  </section> 
+
+
+<!--  ********************     SECTION CATEGORIE 3    *******************-->
+  <section id="all__cat_S3">
 
         <header>
           <h2 class=${genres}>CATEGORIE <span class="genres">Actions</span></h2>
         </header>
 
-        <div id="wrapper">
-      <div id="carousel">
+        <div id="wrapperS3">
+      <div id="actions_carousel" class="carousel">
         <div id="actions_content">
           <!--  CAROUSEL HERE from dataAPI-->
         </div>
@@ -269,53 +544,6 @@
           <path d="M10.02 6L8.61 7.41 13.19 12l-4.58 4.59L10.02 18l6-6-6-6z" />
         </svg>
       </button>
-<script>
-
-const gap = 20;
-
-// const carousel = document.getElementById("carousel");
-// let next = document.getElementById("next");
-// var prev = document.getElementById("prev");
-// var content = document.getElementById("content");
-
-const actionsCarousel = document.getElementById("carousel");
-let nextActions = document.getElementById("nextActions");
-let prevActions = document.getElementById("prevActions");
-var actionsContent = document.getElementById("actions_content");
-
-// next = document.getElementById("nextBest"),
-// prev = document.getElementById("prevBest");
-
-// const familyCarousel = document.getElementById("family_carousel"),
-// next = document.getElementById("nextFamily"),
-// prev = document.getElementById("prevFamily");
-// const thrillerCarousel = document.getElementById("thriller_carousel"),
-//   next = document.getElementById("nextThriller"),
-//   prev = document.getElementById("prevThriller");
-
-nextActions.addEventListener("click", (e) => {
-  console.log("nextActions btn clicked !");
-  actionsCarousel.scrollBy(width + gap, 0);
-  if (actionsCarousel.scrollWidth !== 0) {
-    prevActions.style.display = "flex";
-  }
-  if (actionsContent.scrollWidth - width - gap <= actionsCarousel.scrollLeft + width) {
-    nextActions.style.display = "none";
-  }
-});
-prevActions.addEventListener("click", (e) => {
-  actionsCarousel.scrollBy(-(width + gap), 0);
-  if (actionsCarousel.scrollLeft - width - gap <= 0) {
-    prevActions.style.display = "none";
-  }
-  if (!actionsContent.scrollWidth - width - gap <= actionsCarousel.scrollLeft + width) {
-    nextActions.style.display = "flex";
-  }
-});
-
-let width = actionsCarousel.offsetWidth;
-window.addEventListener("resize", (e) => (width = actionsCarousel.offsetWidth));
-      </script>
     </div>
 
       
@@ -397,15 +625,7 @@ window.addEventListener("resize", (e) => (width = actionsCarousel.offsetWidth));
             </div>
           </div>
         </div>
-      </section>
-
-<!--  ********************     SECTION CATEGORIE 2    *******************-->
-
-
-
-<!--  ********************     SECTION CATEGORIE 3    *******************-->
-
-
+    </section>
 
   <!--  ********************     SECTION CATEGORIE 4    *******************-->
 

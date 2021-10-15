@@ -16,6 +16,10 @@ urlThriller =
   "http://localhost:8000/api/v1/titles/?genre=Thriller&sort_by=-imdb_score";
 urlThriller2 =
   "http://localhost:8000/api/v1/titles/?genre=Thriller&page=2&sort_by=-imdb_score";
+urlAdventure =
+  "http://localhost:8000/api/v1/titles/?genre=Adventure&sort_by=-imdb_score";
+urlAdventure2 =
+  "http://localhost:8000/api/v1/titles/?genre=Adventure&page=2&sort_by=-imdb_score";
 urlFamily =
   "http://localhost:8000/api/v1/titles/?genre=Family&sort_by=-imdb_score";
 urlFamily2 =
@@ -31,6 +35,27 @@ urlFamily2 =
 // ******************  HERO AND BEST MOVIES  ***************************
 
 // BEST MOVIES
+// let carousel_section = document.getElementById("carousel_section_genre");
+// carousel_section.addEventListener("onchange", (e) => {
+//   console.log((carousel_section.addEventListener.value = this.value));
+//   // console.log(`e.target.value = ${e.target.value}`);
+// });
+
+// if (carousel_section === "bestMovies") {
+//   getRatedMovie();
+// }
+// if (carousel_section === "actionsMovies") getActionMovies();
+// if (carousel_section === "familyMovies") getFamilyMovies();
+//});
+
+// function getGenre() {
+//   console.log(carousel_section);
+//   if (carousel_section === "bestMovies") {
+//     getRatedMovie();
+//   }
+//   if (carousel_section === "actionsMovies") getActionMovies();
+//   if (carousel_section === "familyMovies") getFamilyMovies();
+// }
 
 getRatedMovie();
 
@@ -105,80 +130,6 @@ async function getRatedMovie() {
 
 // ******************  MOVIES BY GENRES   ***************************
 
-//ACTION MOVIES
-
-getActionMovies();
-
-async function getActionMovies() {
-  Promise.all([await fetch(urlAction), await fetch(urlAction2)])
-    .then(function (res) {
-      return Promise.all(
-        res.map(function (res) {
-          return res.json();
-        })
-      );
-    })
-    .then(function (dataGenre) {
-      console.log(dataGenre);
-      const MovieGs = dataGenre[0].results.concat(dataGenre[1].results);
-
-      // GENRES ACTIONS
-      var actionsMovies = document.getElementById("genres_content");
-
-      MovieGs.slice(0, 7).map(function (actionM, index) {
-        actionsMovies.insertAdjacentHTML(
-          "beforeend",
-          `<div class="item_box">
-            <button id="GmoviesModal" onclick="getInfoG(${actionM.id})">
-             <img  src="${actionM.image_url}" alt=${actionM.title} />
-             </button>
-             <h3>${actionM.title}</h3>
-             <div>
-            `
-        );
-      }).catch = (error) => {
-        console.log(error);
-      };
-    });
-}
-
-//FAMILY MOVIES
-
-getFamilyMovies();
-
-async function getFamilyMovies() {
-  Promise.all([await fetch(urlFamily), await fetch(urlFamily2)])
-    .then(function (res) {
-      return Promise.all(
-        res.map(function (res) {
-          return res.json();
-        })
-      );
-    })
-    .then(function (dataGenre) {
-      console.log(dataGenre);
-      const MovieGs = dataGenre[0].results.concat(dataGenre[1].results);
-
-      // GENRES
-      var familysMovies = document.getElementById("family_content");
-
-      MovieGs.slice(0, 7).map(function (familyM, index) {
-        familysMovies.insertAdjacentHTML(
-          "beforeend",
-          `<div class="item_box">
-            <button id="GmoviesModal" onclick="getInfoG(${familyM.id})">
-             <img  src="${familyM.image_url}" alt=${familyM.title} />
-             </button>
-             <h3>${familyM.title}</h3>
-             <div>
-            `
-        );
-      }).catch = (error) => {
-        console.log(error);
-      };
-    });
-}
-
 //Thriller MOVIES
 
 getThrillerMovies();
@@ -214,12 +165,298 @@ async function getThrillerMovies() {
         console.log(error);
       };
     });
+
+  // BTN Controler for Thriller
+  const gap = 20;
+
+  const thrillerCarousel = document.getElementById("thriller_carousel");
+  let contentS1 = document.getElementById("thriller_content");
+
+  let nextThriller = document.getElementById("nextThriller");
+
+  let prevThriller = document.getElementById("prevThriller");
+
+  nextThriller.addEventListener("click", (e) => {
+    console.log("Thriller Next Click");
+    thrillerCarousel.scrollBy(width + gap, 0);
+    if (thrillerCarousel.scrollWidth !== 0) {
+      prevThriller.style.display = "flex";
+    }
+    if (
+      contentS1.scrollWidth - width - gap <=
+      thrillerCarousel.scrollLeft + width
+    ) {
+      nextThriller.style.display = "none";
+    }
+  });
+  prevThriller.addEventListener("click", (e) => {
+    console.log("Thriller Previous Click");
+    thrillerCarousel.scrollBy(-(width + gap), 0);
+    if (thrillerCarousel.scrollLeft - width - gap <= 0) {
+      prevThriller.style.display = "none";
+    }
+    if (
+      !contentS1.scrollWidth - width - gap <=
+      thrillerCarousel.scrollLeft + width
+    ) {
+      nextThriller.style.display = "flex";
+    }
+  });
+
+  let width = thrillerCarousel.offsetWidth;
+  window.addEventListener(
+    "resize",
+    (e) => (width = thrillerCarousel.offsetWidth)
+  );
 }
+
+// **********************FAMILY MOVIES  **********************
+
+getFamilyMovies();
+
+async function getFamilyMovies() {
+  Promise.all([await fetch(urlFamily), await fetch(urlFamily2)])
+    .then(function (res) {
+      return Promise.all(
+        res.map(function (res) {
+          return res.json();
+        })
+      );
+    })
+    .then(function (dataGenre) {
+      console.log(dataGenre);
+      const MovieGs = dataGenre[0].results.concat(dataGenre[1].results);
+
+      // GENRES FAMILY
+      var familysMovies = document.getElementById("family_content");
+
+      MovieGs.slice(0, 7).map(function (familyM, index) {
+        familysMovies.insertAdjacentHTML(
+          "beforeend",
+          `<div class="item_box">
+            <button id="GmoviesModal" onclick="getInfoG(${familyM.id})">
+             <img  src="${familyM.image_url}" alt=${familyM.title} />
+             </button>
+             <h3>${familyM.title}</h3>
+             <div>
+            `
+        );
+      }).catch = (error) => {
+        console.log(error);
+      };
+    });
+
+  // BTN Controler for Family
+  const gap = 20;
+
+  const familyCarousel = document.getElementById("family_carousel");
+  let contentS2 = document.getElementById("family_content");
+
+  let nextFamily = document.getElementById("nextFamily");
+
+  let prevFamily = document.getElementById("prevFamily");
+
+  nextFamily.addEventListener("click", (e) => {
+    console.log("Family Next Click");
+    familyCarousel.scrollBy(width + gap, 0);
+    if (familyCarousel.scrollWidth !== 0) {
+      prevFamily.style.display = "flex";
+    }
+    if (
+      contentS2.scrollWidth - width - gap <=
+      familyCarousel.scrollLeft + width
+    ) {
+      nextFamily.style.display = "none";
+    }
+  });
+  prevFamily.addEventListener("click", (e) => {
+    console.log("Family Previous Click");
+    familyCarousel.scrollBy(-(width + gap), 0);
+    if (familyCarousel.scrollLeft - width - gap <= 0) {
+      prevFamily.style.display = "none";
+    }
+    if (
+      !contentS2.scrollWidth - width - gap <=
+      familyCarousel.scrollLeft + width
+    ) {
+      nextFamily.style.display = "flex";
+    }
+  });
+
+  let width = familyCarousel.offsetWidth;
+  window.addEventListener(
+    "resize",
+    (e) => (width = familyCarousel.offsetWidth)
+  );
+}
+
+//    ACTION MOVIES
+
+getActionMovies();
+
+async function getActionMovies() {
+  Promise.all([await fetch(urlAction), await fetch(urlAction2)])
+    .then(function (res) {
+      return Promise.all(
+        res.map(function (res) {
+          return res.json();
+        })
+      );
+    })
+    .then(function (dataGenre) {
+      console.log(dataGenre);
+      const MovieGs = dataGenre[0].results.concat(dataGenre[1].results);
+
+      // GENRES ACTIONS
+      var actionsMovies = document.getElementById("actions_content");
+
+      MovieGs.slice(0, 7).map(function (actionM, index) {
+        actionsMovies.insertAdjacentHTML(
+          "beforeend",
+          `<div class="item_box">
+            <button id="GmoviesModal" onclick="getInfoG(${actionM.id})">
+             <img  src="${actionM.image_url}" alt=${actionM.title} />
+             </button>
+             <h3>${actionM.title}</h3>
+             <div>
+            `
+        );
+      }).catch = (error) => {
+        console.log(error);
+      };
+    });
+
+  // BTN Controler for Actions
+  const gap = 20;
+
+  const actionsCarousel = document.getElementById("actions_carousel");
+  let contentS3 = document.getElementById("actions_content");
+
+  let nextActions = document.getElementById("nextActions");
+
+  let prevActions = document.getElementById("prevActions");
+
+  nextActions.addEventListener("click", (e) => {
+    console.log("Actions Next Click");
+    actionsCarousel.scrollBy(width + gap, 0);
+    if (actionsCarousel.scrollWidth !== 0) {
+      prevActions.style.display = "flex";
+    }
+    if (
+      contentS3.scrollWidth - width - gap <=
+      actionsCarousel.scrollLeft + width
+    ) {
+      nextActions.style.display = "none";
+    }
+  });
+  prevActions.addEventListener("click", (e) => {
+    console.log("Actions Previous Click");
+    actionsCarousel.scrollBy(-(width + gap), 0);
+    if (actionsCarousel.scrollLeft - width - gap <= 0) {
+      prevActions.style.display = "none";
+    }
+    if (
+      !contentS3.scrollWidth - width - gap <=
+      actionsCarousel.scrollLeft + width
+    ) {
+      nextActions.style.display = "flex";
+    }
+  });
+
+  let width = actionsCarousel.offsetWidth;
+  window.addEventListener(
+    "resize",
+    (e) => (width = actionsCarousel.offsetWidth)
+  );
+}
+
+// ***************************************************************************************
+//     Adventure MOVIES
+
+getAdventureMovies();
+
+async function getAdventureMovies() {
+  Promise.all([await fetch(urlAdventure), await fetch(urlAdventure2)])
+    .then(function (res) {
+      return Promise.all(
+        res.map(function (res) {
+          return res.json();
+        })
+      );
+    })
+    .then(function (dataGenre) {
+      console.log(dataGenre);
+      const MovieGs = dataGenre[0].results.concat(dataGenre[1].results);
+
+      // GENRES
+      var adventuresMovies = document.getElementById("adventure_content");
+
+      MovieGs.slice(0, 7).map(function (adventureM, index) {
+        adventuresMovies.insertAdjacentHTML(
+          "beforeend",
+          `<div class="item_box">
+            <button id="GmoviesModal" onclick="getInfoG(${adventureM.id})">
+             <img  src="${adventureM.image_url}" alt=${adventureM.title} />
+             </button>
+             <h3>${adventureM.title}</h3>
+             <div>
+            `
+        );
+      }).catch = (error) => {
+        console.log(error);
+      };
+    });
+
+  // BTN Controler for Adventure
+  const gap = 20;
+
+  const adventureCarousel = document.getElementById("adventure_carousel");
+  let contentAd = document.getElementById("adventure_content");
+
+  let nextAdventure = document.getElementById("nextAdventure");
+
+  let prevAdventure = document.getElementById("prevAdventure");
+
+  nextAdventure.addEventListener("click", (e) => {
+    console.log("Adventure Next Click");
+    adventureCarousel.scrollBy(width + gap, 0);
+    if (adventureCarousel.scrollWidth !== 0) {
+      prevAdventure.style.display = "flex";
+    }
+    if (
+      contentAd.scrollWidth - width - gap <=
+      adventureCarousel.scrollLeft + width
+    ) {
+      nextAdventure.style.display = "none";
+    }
+  });
+  prevAdventure.addEventListener("click", (e) => {
+    console.log("Adventure Previous Click");
+    adventureCarousel.scrollBy(-(width + gap), 0);
+    if (adventureCarousel.scrollLeft - width - gap <= 0) {
+      prevAdventure.style.display = "none";
+    }
+    if (
+      !contentAd.scrollWidth - width - gap <=
+      adventureCarousel.scrollLeft + width
+    ) {
+      nextAdventure.style.display = "flex";
+    }
+  });
+
+  let width = adventureCarousel.offsetWidth;
+  window.addEventListener(
+    "resize",
+    (e) => (width = adventureCarousel.offsetWidth)
+  );
+}
+
+// ***************************************************************************************
 
 // LAST EXPERIENCE
 
 //  MOVIES BY GENRES
-const genres = [
+const all_genres = [
   "Action",
   "Comedy",
   "Adventure",
@@ -236,7 +473,7 @@ const genres = [
 
 // var genres_movies = document.getElementById("genres_movies");
 
-genres.forEach(function (genre_movie, index, array) {
+all_genres.forEach(function (genre_movie, index, array) {
   "http://localhost:8000/api/v1/titles/?genre=" +
     genre_movie +
     "&sort_by=-imdb_score";

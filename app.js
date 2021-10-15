@@ -84,6 +84,7 @@ var modalClose = document.getElementsByClassName("closeModal")[0];
 //   console.log("movie Modal clicked!");
 //   moviesModal.style.display = "block";
 // };
+
 btnModal.addEventListener("click", function () {
   console.log(bestModal);
   bestModal.style.display = "block";
@@ -103,23 +104,8 @@ const gap = 20;
 
 const carousel = document.getElementById("carousel");
 let next = document.getElementById("next");
-var prev = document.getElementById("prev");
-var content = document.getElementById("content");
-
-// const carousel = document.getElementById("carousel");
-let next = document.getElementById("nextActions");
-let prev = document.getElementById("prevActions");
-var content = document.getElementById("actions_content");
-
-// next = document.getElementById("nextBest"),
-// prev = document.getElementById("prevBest");
-
-// const familyCarousel = document.getElementById("family_carousel"),
-// next = document.getElementById("nextFamily"),
-// prev = document.getElementById("prevFamily");
-// const thrillerCarousel = document.getElementById("thriller_carousel"),
-//   next = document.getElementById("nextThriller"),
-//   prev = document.getElementById("prevThriller");
+let prev = document.getElementById("prev");
+let content = document.getElementById("content");
 
 next.addEventListener("click", (e) => {
   console.log("next btn clicked !");
