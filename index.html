@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -14,6 +14,7 @@
       href="https://fonts.googleapis.com/csS3?family=Fleur+De+Leah&family=Open+Sans&family=Permanent+Marker&family=Pinyon+Script&family=Roboto&display=swap"
       rel="stylesheet"
     />
+    <script src="dataAPI.js"></script>
   </head>
   <body>
     <!-- Begin Hero section -->
@@ -57,7 +58,8 @@
             <span>Titre du film</span>
           </h1>
           <p class="hero__description">
-            About the film, it's a fabulous movie.</p>
+            About the film, it's a fabulous movie.
+          </p>
           <button id="btnModal" class="button">Savoir Plus</button>
           <!-- The BEST MOVIE Modal -->
           <div id="bestMovieModal" class="bestModal">
@@ -68,10 +70,14 @@
               </div>
               <div class="main__modal">
                 <div class="image">
-                  <img src="" alt="" class="best_picture-modal" />
+                  <img
+                    src="./images/last_castle.jpg"
+                    alt="best movie"
+                    class="best_picture-modal"
+                  />
                 </div>
                 <div class="infosTech">
-                  <h6>Genres:</p>
+                  <h6>Genres:</h6>
                   <p class="best_genres"></p>
                   <h6>Date de sortie:</h6>
                   <p class="best_dateDeSortie"></p>
@@ -79,8 +85,8 @@
                   <p class="best_rated"></p>
                   <h6>Score imdb</h6>
                   <p class="best_score_imdb"></p>
-                  <h6>Durée</p>
-                  <p class="best_duree"></h6>
+                  <h6>Durée</h6>
+                  <p class="best_duree"></p>
                   <h6>Pays d'origine :</h6>
                   <p class="best_pays"></p>
                   <h6>Box Office</h6>
@@ -100,64 +106,66 @@
         </div>
         <img
           id="best_movie_picture"
-          src=""
+          src="./images/last_castle.jpg"
           alt="best movie picture"
           class="hero_picture-movie"
         />
       </div>
     </header>
     <!-- End Hero section -->
-    
-<!-- *******************************************
+
+    <!-- *******************************************
     MAIN SECTION WITH BEST MOVIES AND GENRES SECTION
            **********************************************-->
-  
-<main class="main__container">
-  <!-- Begin Container section -->
 
-  <!--  CAROUSEL BEST MOVIE HERE from dataAPI-->
+    <main class="main__container">
+      <!-- Begin Container section -->
 
-   <section id="carousel__data__best">
+      <!--  CAROUSEL BEST MOVIE HERE from dataAPI-->
 
-    <header>
-      <h2 class="best movies">CATEGORIE BEST MOVIES</h2>
-    </header>
+      <section id="carousel__data__best">
+        <header>
+          <h2 class="best movies">CATEGORIE BEST MOVIES</h2>
+        </header>
 
-    <div id="wrapper">
-      <div id="carousel">
-        <div id="content">
-          <!--  CAROUSEL HERE from dataAPI-->
+        <div id="wrapper">
+          <div id="carousel">
+            <div id="content">
+              <!--  CAROUSEL HERE from dataAPI-->
+            </div>
+          </div>
+          <button id="prev">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+            >
+              <path fill="none" d="M0 0h24v24H0V0z" />
+              <path
+                d="M15.61 7.41L14.2 6l-6 6 6 6 1.41-1.41L11.03 12l4.58-4.59z"
+              />
+            </svg>
+          </button>
+          <button id="next">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+            >
+              <path fill="none" d="M0 0h24v24H0V0z" />
+              <path
+                d="M10.02 6L8.61 7.41 13.19 12l-4.58 4.59L10.02 18l6-6-6-6z"
+              />
+            </svg>
+          </button>
         </div>
-      </div>
-      <button id="prev">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-        >
-          <path fill="none" d="M0 0h24v24H0V0z" />
-          <path d="M15.61 7.41L14.2 6l-6 6 6 6 1.41-1.41L11.03 12l4.58-4.59z" />
-        </svg>
-      </button>
-      <button id="next">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-        >
-          <path fill="none" d="M0 0h24v24H0V0z" />
-          <path d="M10.02 6L8.61 7.41 13.19 12l-4.58 4.59L10.02 18l6-6-6-6z" />
-        </svg>
-      </button>
-    </div>
 
-      
         <!-- The MOVIES of Best Modal -->
         <script>
           async function getInfoG(id) {
-            console.log("modal Genre clicked!"+ id);
+            console.log("modal Genre clicked!" + id);
             moviesModal.style.display = "block";
             console.log("http://127.0.0.1:8000/api/v1/titles/" + id);
             await fetch("http://127.0.0.1:8000/api/v1/titles/" + id)
@@ -195,15 +203,19 @@
           }
         </script>
 
-        <div id="movieModal" class="moviesModal">
+        <div id="movieModal2" class="moviesModal">
           <div class="modal__content">
             <div class="head__modal">
-              <h3 id="title__modal">Titre :</h3>
+              <h3 id="title__modal2">Titre :</h3>
               <span class="closeModal">&times;</span>
             </div>
             <div class="main__modal">
               <div class="image">
-                <img src="" alt="" class="picture-modal" />
+                <img
+                  src="./images/last_castle.jpg"
+                  alt=""
+                  class="picture-modal"
+                />
               </div>
               <div class="infosTech">
                 <h6>Genres:</h6>
@@ -233,285 +245,50 @@
           </div>
         </div>
       </section>
- <!--  ********************     SECTION CATEGORIE 1    *******************-->
-<section id="all__cat_S1">  
-  <header>
-    <h2 class=${genres}>CATEGORIE THRILLER</h2>
-  </header>
-      
-    <div id="wrapperS1">
-        <div id="thriller_carousel" class="carousel">
-          <div id="thriller_content" >
-            <!--  CAROUSEL HERE from dataAPI-->
-          </div>
-        </div>
-        <button id="prevThriller">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-          >
-            <path fill="none" d="M0 0h24v24H0V0z" />
-            <path d="M15.61 7.41L14.2 6l-6 6 6 6 1.41-1.41L11.03 12l4.58-4.59z" />
-          </svg>
-        </button>
-        <button id="nextThriller">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-          >
-            <path fill="none" d="M0 0h24v24H0V0z" />
-            <path d="M10.02 6L8.61 7.41 13.19 12l-4.58 4.59L10.02 18l6-6-6-6z" />
-          </svg>
-        </button>
-    </div>
-         
-            
-              <!-- The MOVIES of GENRE Modal -->
-              <script>
-                async function getInfoG(id) {
-                  console.log("modal Genre clicked!"+ id);
-                  moviesModal.style.display = "block";
-                  console.log("http://127.0.0.1:8000/api/v1/titles/" + id);
-                  await fetch("http://127.0.0.1:8000/api/v1/titles/" + id)
-                    .then((res) => res.json())
-                    .then((objects) => {
-                      console.log(objects);
-                      document.querySelector("#title__modal").innerText =
-                        objects.title;
-                      document.querySelector(".picture-modal").src =
-                        objects.image_url;
-                      document.querySelector(".description").innerText =
-                        objects.description;
-                      document.querySelector(".genres").innerText = objects.genres;
-                      document.querySelector(".dateDeSortie").innerText =
-                        objects.date_published;
-                      document.querySelector(".imdb_score").innerText =
-                        objects.imdb_score;
-                      document.querySelector(".duree").innerText = objects.duration;
-                      console.log(objects.duration);
-      
-                      document.querySelector(".pays").innerText = objects.countries;
-                      console.log(objects.countries);
-                      document.querySelector(".boxOffice").innerText =
-                        objects.worldwide_gross_income;
-                      document.querySelector(".rated").innerText = objects.rated;
-      
-                      document.querySelector(".realisateurs").innerText =
-                        objects.directors;
-                      document.querySelector(".acteurs").innerText = objects.actors;
-      
-                      console.log(objects.genres);
-      
-                      //   const descrip = objects.description;
-                    });
-                }
-              </script>
-      
-        <div id="movieModal" class="moviesModal">
-          <div class="modal__content">
-            <div class="head__modal">
-              <h3 id="title__modal">Titre :</h3>
-              <span class="closeModal">&times;</span>
-            </div>
-            <div class="main__modal">
-              <div class="image">
-                <img src="" alt="" class="picture-modal" />
-              </div>
-              <div class="infosTech">
-                <h6>Genres:</h6>
-                <p class="genres"></p>
-                <h6>Date de sortie:</h6>
-                <p class="dateDeSortie"></p>
-                <h6>Rated :</h6>
-                <p class="rated"></p>
-                <h6>Score imdb</h6>
-                <p class="imdb_score"></p>
-                <h6>Durée</h6>
-                <p class="duree"></p>
-                <h6>Pays d'origine :</h6>
-                <p class="pays"></p>
-                <h6>Box Office</h6>
-                <p class="boxOffice"></p>
-              </div>
-              <div class="infos">
-                <h6>Réalisateur</h6>
-                <p class="realisateurs"></p>
-                <h6>Les acteurs:</h6>
-                <p class="acteurs"></p>
-                <h6>Résumé du film:</h6>
-                <p class="description"></p>
-              </div>
-            </div>
-          </div>
-        </div>
-</section>  
-
-<!--  ********************     SECTION CATEGORIE 2    *******************-->
-
-<section id="all__cat_Ad">
-      
-  <header>
-    <h2 class=genres>CATEGORIE ADVENTURE </h2>
-  </header>
-      
-    <div id="wrapperAd">
-        <div id="adventure_carousel" class="carousel">
-          <div id="adventure_content" >
-            <!--  CAROUSEL HERE from dataAPI-->
-          </div>
-        </div>
-        <button id="prevAdventure">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-          >
-            <path fill="none" d="M0 0h24v24H0V0z" />
-            <path d="M15.61 7.41L14.2 6l-6 6 6 6 1.41-1.41L11.03 12l4.58-4.59z" />
-          </svg>
-        </button>
-        <button id="nextAdventure">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-          >
-            <path fill="none" d="M0 0h24v24H0V0z" />
-            <path d="M10.02 6L8.61 7.41 13.19 12l-4.58 4.59L10.02 18l6-6-6-6z" />
-          </svg>
-        </button>
-    </div>
-         
-            
-              <!-- The MOVIES of GENRE Modal -->
-              <script>
-                async function getInfoG(id) {
-                  console.log("modal Genre clicked!"+ id);
-                  moviesModal.style.display = "block";
-                  console.log("http://127.0.0.1:8000/api/v1/titles/" + id);
-                  await fetch("http://127.0.0.1:8000/api/v1/titles/" + id)
-                    .then((res) => res.json())
-                    .then((objects) => {
-                      console.log(objects);
-                      document.querySelector("#title__modal").innerText =
-                        objects.title;
-                      document.querySelector(".picture-modal").src =
-                        objects.image_url;
-                      document.querySelector(".description").innerText =
-                        objects.description;
-                      document.querySelector(".genres").innerText = objects.genres;
-                      document.querySelector(".dateDeSortie").innerText =
-                        objects.date_published;
-                      document.querySelector(".imdb_score").innerText =
-                        objects.imdb_score;
-                      document.querySelector(".duree").innerText = objects.duration;
-                      console.log(objects.duration);
-      
-                      document.querySelector(".pays").innerText = objects.countries;
-                      console.log(objects.countries);
-                      document.querySelector(".boxOffice").innerText =
-                        objects.worldwide_gross_income;
-                      document.querySelector(".rated").innerText = objects.rated;
-      
-                      document.querySelector(".realisateurs").innerText =
-                        objects.directors;
-                      document.querySelector(".acteurs").innerText = objects.actors;
-      
-                      console.log(objects.genres);
-      
-                      //   const descrip = objects.description;
-                    });
-                }
-              </script>
-      
-        <div id="movieModal" class="moviesModal">
-          <div class="modal__content">
-            <div class="head__modal">
-              <h3 id="title__modal">Titre :</h3>
-              <span class="closeModal">&times;</span>
-            </div>
-            <div class="main__modal">
-              <div class="image">
-                <img src="" alt="" class="picture-modal" />
-              </div>
-              <div class="infosTech">
-                <h6>Genres:</h6>
-                <p class="genres"></p>
-                <h6>Date de sortie:</h6>
-                <p class="dateDeSortie"></p>
-                <h6>Rated :</h6>
-                <p class="rated"></p>
-                <h6>Score imdb</h6>
-                <p class="imdb_score"></p>
-                <h6>Durée</h6>
-                <p class="duree"></p>
-                <h6>Pays d'origine :</h6>
-                <p class="pays"></p>
-                <h6>Box Office</h6>
-                <p class="boxOffice"></p>
-              </div>
-              <div class="infos">
-                <h6>Réalisateur</h6>
-                <p class="realisateurs"></p>
-                <h6>Les acteurs:</h6>
-                <p class="acteurs"></p>
-                <h6>Résumé du film:</h6>
-                <p class="description"></p>
-              </div>
-            </div>
-          </div>
-        </div>
-  </section> 
-
-
-<!--  ********************     SECTION CATEGORIE 3    *******************-->
-  <section id="all__cat_S3">
-
+      <!--  ********************     SECTION CATEGORIE 1    *******************-->
+      <section id="all__cat_S1">
         <header>
-          <h2 class=${genres}>CATEGORIE ACTIONS</h2>
+          <h2 class="${genres}">CATEGORIE THRILLER</h2>
         </header>
 
-        <div id="wrapperS3">
-      <div id="actions_carousel" class="carousel">
-        <div id="actions_content">
-          <!--  CAROUSEL HERE from dataAPI-->
+        <div id="wrapperS1">
+          <div id="thriller_carousel" class="carousel">
+            <div id="thriller_content">
+              <!--  CAROUSEL HERE from dataAPI-->
+            </div>
+          </div>
+          <button id="prevThriller">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+            >
+              <path fill="none" d="M0 0h24v24H0V0z" />
+              <path
+                d="M15.61 7.41L14.2 6l-6 6 6 6 1.41-1.41L11.03 12l4.58-4.59z"
+              />
+            </svg>
+          </button>
+          <button id="nextThriller">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+            >
+              <path fill="none" d="M0 0h24v24H0V0z" />
+              <path
+                d="M10.02 6L8.61 7.41 13.19 12l-4.58 4.59L10.02 18l6-6-6-6z"
+              />
+            </svg>
+          </button>
         </div>
-      </div>
-      <button id="prevActions">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-        >
-          <path fill="none" d="M0 0h24v24H0V0z" />
-          <path d="M15.61 7.41L14.2 6l-6 6 6 6 1.41-1.41L11.03 12l4.58-4.59z" />
-        </svg>
-      </button>
-      <button id="nextActions">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-        >
-          <path fill="none" d="M0 0h24v24H0V0z" />
-          <path d="M10.02 6L8.61 7.41 13.19 12l-4.58 4.59L10.02 18l6-6-6-6z" />
-        </svg>
-      </button>
-    </div>
 
-      
         <!-- The MOVIES of GENRE Modal -->
         <script>
           async function getInfoG(id) {
-            console.log("modal Genre clicked!"+ id);
+            console.log("modal Genre clicked!" + id);
             moviesModal.style.display = "block";
             console.log("http://127.0.0.1:8000/api/v1/titles/" + id);
             await fetch("http://127.0.0.1:8000/api/v1/titles/" + id)
@@ -549,15 +326,19 @@
           }
         </script>
 
-        <div id="movieModal" class="moviesModal">
+        <div id="movieModal3" class="moviesModal">
           <div class="modal__content">
             <div class="head__modal">
-              <h3 id="title__modal">Titre :</h3>
+              <h3 id="title__modal3">Titre :</h3>
               <span class="closeModal">&times;</span>
             </div>
             <div class="main__modal">
               <div class="image">
-                <img src="" alt="" class="picture-modal" />
+                <img
+                  src="./images/last_castle.jpg"
+                  alt=""
+                  class="picture-modal"
+                />
               </div>
               <div class="infosTech">
                 <h6>Genres:</h6>
@@ -586,10 +367,258 @@
             </div>
           </div>
         </div>
-    </section>
+      </section>
 
-  <!--  ********************     SECTION CATEGORIE 4    *******************-->
+      <!--  ********************     SECTION CATEGORIE 2    *******************-->
 
+      <section id="all__cat_Ad">
+        <header>
+          <h2 class="genres">CATEGORIE ADVENTURE</h2>
+        </header>
+
+        <div id="wrapperAd">
+          <div id="adventure_carousel" class="carousel">
+            <div id="adventure_content">
+              <!--  CAROUSEL HERE from dataAPI-->
+            </div>
+          </div>
+          <button id="prevAdventure">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+            >
+              <path fill="none" d="M0 0h24v24H0V0z" />
+              <path
+                d="M15.61 7.41L14.2 6l-6 6 6 6 1.41-1.41L11.03 12l4.58-4.59z"
+              />
+            </svg>
+          </button>
+          <button id="nextAdventure">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+            >
+              <path fill="none" d="M0 0h24v24H0V0z" />
+              <path
+                d="M10.02 6L8.61 7.41 13.19 12l-4.58 4.59L10.02 18l6-6-6-6z"
+              />
+            </svg>
+          </button>
+        </div>
+
+        <!-- The MOVIES of GENRE Modal -->
+        <script>
+          async function getInfoG(id) {
+            console.log("modal Genre clicked!" + id);
+            moviesModal.style.display = "block";
+            console.log("http://127.0.0.1:8000/api/v1/titles/" + id);
+            await fetch("http://127.0.0.1:8000/api/v1/titles/" + id)
+              .then((res) => res.json())
+              .then((objects) => {
+                console.log(objects);
+                document.querySelector(".title__modal").innerText =
+                  objects.title;
+                document.querySelector(".picture-modal").src =
+                  objects.image_url;
+                document.querySelector(".description").innerText =
+                  objects.description;
+                document.querySelector(".genres").innerText = objects.genres;
+                document.querySelector(".dateDeSortie").innerText =
+                  objects.date_published;
+                document.querySelector(".imdb_score").innerText =
+                  objects.imdb_score;
+                document.querySelector(".duree").innerText = objects.duration;
+                console.log(objects.duration);
+
+                document.querySelector(".pays").innerText = objects.countries;
+                console.log(objects.countries);
+                document.querySelector(".boxOffice").innerText =
+                  objects.worldwide_gross_income;
+                document.querySelector(".rated").innerText = objects.rated;
+
+                document.querySelector(".realisateurs").innerText =
+                  objects.directors;
+                document.querySelector(".acteurs").innerText = objects.actors;
+
+                console.log(objects.genres);
+
+                //   const descrip = objects.description;
+              });
+          }
+        </script>
+
+        <div id="movieModal4" class="moviesModal">
+          <div class="modal__content">
+            <div class="head__modal">
+              <h3 class="title__modal">Titre :</h3>
+              <span class="closeModal">&times;</span>
+            </div>
+            <div class="main__modal">
+              <div class="image">
+                <img
+                  src="./images/last_castle.jpg"
+                  alt=""
+                  class="picture-modal"
+                />
+              </div>
+              <div class="infosTech">
+                <h6>Genres:</h6>
+                <p class="genres"></p>
+                <h6>Date de sortie:</h6>
+                <p class="dateDeSortie"></p>
+                <h6>Rated :</h6>
+                <p class="rated"></p>
+                <h6>Score imdb</h6>
+                <p class="imdb_score"></p>
+                <h6>Durée</h6>
+                <p class="duree"></p>
+                <h6>Pays d'origine :</h6>
+                <p class="pays"></p>
+                <h6>Box Office</h6>
+                <p class="boxOffice"></p>
+              </div>
+              <div class="infos">
+                <h6>Réalisateur</h6>
+                <p class="realisateurs"></p>
+                <h6>Les acteurs:</h6>
+                <p class="acteurs"></p>
+                <h6>Résumé du film:</h6>
+                <p class="description"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!--  ********************     SECTION CATEGORIE 3    *******************-->
+      <section id="all__cat_S3">
+        <header>
+          <h2 class="${genres}">CATEGORIE ACTIONS</h2>
+        </header>
+
+        <div id="wrapperS3">
+          <div id="actions_carousel" class="carousel">
+            <div id="actions_content">
+              <!--  CAROUSEL HERE from dataAPI-->
+            </div>
+          </div>
+          <button id="prevActions">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+            >
+              <path fill="none" d="M0 0h24v24H0V0z" />
+              <path
+                d="M15.61 7.41L14.2 6l-6 6 6 6 1.41-1.41L11.03 12l4.58-4.59z"
+              />
+            </svg>
+          </button>
+          <button id="nextActions">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+            >
+              <path fill="none" d="M0 0h24v24H0V0z" />
+              <path
+                d="M10.02 6L8.61 7.41 13.19 12l-4.58 4.59L10.02 18l6-6-6-6z"
+              />
+            </svg>
+          </button>
+        </div>
+
+        <!-- The MOVIES of GENRE Modal -->
+        <script>
+          async function getInfoG(id) {
+            console.log("modal Genre clicked!" + id);
+            moviesModal.style.display = "block";
+            console.log("http://127.0.0.1:8000/api/v1/titles/" + id);
+            await fetch("http://127.0.0.1:8000/api/v1/titles/" + id)
+              .then((res) => res.json())
+              .then((objects) => {
+                console.log(objects);
+                document.querySelector(".title__modal").innerText =
+                  objects.title;
+                document.querySelector(".picture-modal").src =
+                  objects.image_url;
+                document.querySelector(".description").innerText =
+                  objects.description;
+                document.querySelector(".genres").innerText = objects.genres;
+                document.querySelector(".dateDeSortie").innerText =
+                  objects.date_published;
+                document.querySelector(".imdb_score").innerText =
+                  objects.imdb_score;
+                document.querySelector(".duree").innerText = objects.duration;
+                console.log(objects.duration);
+
+                document.querySelector(".pays").innerText = objects.countries;
+                console.log(objects.countries);
+                document.querySelector(".boxOffice").innerText =
+                  objects.worldwide_gross_income;
+                document.querySelector(".rated").innerText = objects.rated;
+
+                document.querySelector(".realisateurs").innerText =
+                  objects.directors;
+                document.querySelector(".acteurs").innerText = objects.actors;
+
+                console.log(objects.genres);
+
+                //   const descrip = objects.description;
+              });
+          }
+        </script>
+
+        <div id="movieModal5" class="moviesModal">
+          <div class="modal__content">
+            <div class="head__modal">
+              <h3 class="title__modal5">Titre :</h3>
+              <span class="closeModal">&times;</span>
+            </div>
+            <div class="main__modal">
+              <div class="image">
+                <img
+                  src="./images/last_castle.jpg"
+                  alt=""
+                  class="picture-modal"
+                />
+              </div>
+              <div class="infosTech">
+                <h6>Genres:</h6>
+                <p class="genres"></p>
+                <h6>Date de sortie:</h6>
+                <p class="dateDeSortie"></p>
+                <h6>Rated :</h6>
+                <p class="rated"></p>
+                <h6>Score imdb</h6>
+                <p class="imdb_score"></p>
+                <h6>Durée</h6>
+                <p class="duree"></p>
+                <h6>Pays d'origine :</h6>
+                <p class="pays"></p>
+                <h6>Box Office</h6>
+                <p class="boxOffice"></p>
+              </div>
+              <div class="infos">
+                <h6>Réalisateur</h6>
+                <p class="realisateurs"></p>
+                <h6>Les acteurs:</h6>
+                <p class="acteurs"></p>
+                <h6>Résumé du film:</h6>
+                <p class="description"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!--  ********************     SECTION CATEGORIE 4    *******************-->
     </main>
     <!-- End Container section -->
 
@@ -598,12 +627,9 @@
     <!-- End Footer section -->
 
     <script src="app.js"></script>
-    <script src="dataAPI.js"></script>
-
 
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.4/axios.min.js"></script> -->
 
     <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
-
   </body>
 </html>

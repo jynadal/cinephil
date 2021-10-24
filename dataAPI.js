@@ -339,7 +339,6 @@ async function getActionMovies() {
     (e) => (width = actionsCarousel.offsetWidth)
   );
 }
-
 //     Adventure MOVIES
 
 getAdventureMovies();
@@ -358,6 +357,7 @@ async function getAdventureMovies() {
       const MovieGs = dataGenre[0].results.concat(dataGenre[1].results);
 
       // GENRES
+
       var adventuresMovies = document.getElementById("adventure_content");
 
       MovieGs.slice(0, 7).map(function (adventureM, index) {
